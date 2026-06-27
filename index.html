@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<meta name="description" content="Apex Web Studio designs premium websites for American businesses that want to look established, build trust, and convert more visitors into customers." />
 <title>Apex Web Studio | Premium Websites for American Businesses</title>
+<meta name="description" content="Apex Web Studio designs premium, responsive websites for American businesses that want to look established, build trust, and convert more customers." />
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
@@ -25,7 +25,7 @@
     --purple:#8b5cf6;
     --glass:rgba(255,255,255,.08);
     --border:rgba(255,255,255,.14);
-    --border-strong:rgba(96,165,250,.5);
+    --border-strong:rgba(96,165,250,.42);
 }
 
 html{
@@ -72,6 +72,52 @@ section{
     position:relative;
 }
 
+/* ========================= */
+/* Loading */
+/* ========================= */
+.loader{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 50% 35%,rgba(59,130,246,.22),transparent 38%),
+        #020617;
+    z-index:9999;
+    display:grid;
+    place-items:center;
+    transition:opacity .8s ease, visibility .8s ease;
+}
+
+.loader.hide{
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+}
+
+.loader-inner{
+    text-align:center;
+}
+
+.loader h1{
+    font-size:clamp(42px,8vw,88px);
+    line-height:.9;
+    letter-spacing:-.07em;
+    background:linear-gradient(135deg,#fff,#60a5fa,#a78bfa);
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:18px;
+}
+
+.loader p{
+    color:#93c5fd;
+    letter-spacing:.22em;
+    font-size:13px;
+    font-weight:900;
+    text-transform:uppercase;
+}
+
+/* ========================= */
+/* Navigation */
+/* ========================= */
 .navbar{
     position:fixed;
     top:22px;
@@ -125,11 +171,6 @@ section{
     background:#fff;
     color:#020617!important;
     font-weight:800;
-    box-shadow:0 0 0 rgba(96,165,250,0);
-}
-
-.nav-cta:hover{
-    box-shadow:0 18px 60px rgba(96,165,250,.25);
 }
 
 .menu{
@@ -146,68 +187,9 @@ section{
     transition:.3s;
 }
 
-/* Loader */
-.loader{
-    position:fixed;
-    inset:0;
-    background:
-        radial-gradient(circle at center,rgba(59,130,246,.15),transparent 36%),
-        #020617;
-    z-index:9999;
-    display:grid;
-    place-items:center;
-    transition:.8s ease;
-}
-
-.loader.hide{
-    opacity:0;
-    pointer-events:none;
-}
-
-.loader-inner{
-    text-align:center;
-}
-
-.loader h1{
-    font-size:clamp(42px,8vw,90px);
-    letter-spacing:-.07em;
-    background:linear-gradient(135deg,#fff,#60a5fa,#a78bfa);
-    -webkit-background-clip:text;
-    color:transparent;
-    margin-bottom:16px;
-}
-
-.loader p{
-    color:#93c5fd;
-    font-weight:800;
-    letter-spacing:.18em;
-    text-transform:uppercase;
-    font-size:12px;
-}
-
-.loader-line{
-    width:190px;
-    height:2px;
-    margin:20px auto 0;
-    border-radius:999px;
-    background:rgba(255,255,255,.12);
-    overflow:hidden;
-}
-
-.loader-line span{
-    display:block;
-    height:100%;
-    width:55%;
-    background:linear-gradient(90deg,transparent,#60a5fa,#fff);
-    animation:loadMove .8s ease infinite;
-}
-
-@keyframes loadMove{
-    from{transform:translateX(-100%);}
-    to{transform:translateX(220%);}
-}
-
+/* ========================= */
 /* Hero */
+/* ========================= */
 .hero{
     min-height:100vh;
     padding-top:190px;
@@ -284,7 +266,7 @@ section{
 
 .btn:hover{
     transform:translateY(-4px) scale(1.02);
-    box-shadow:0 22px 70px rgba(59,130,246,.28);
+    box-shadow:0 20px 60px rgba(59,130,246,.28);
 }
 
 .floating-card{
@@ -316,8 +298,8 @@ section{
     height:420px;
     border-radius:24px;
     background:
-        radial-gradient(circle at 35% 30%,rgba(59,130,246,.35),transparent 32%),
-        radial-gradient(circle at 70% 65%,rgba(139,92,246,.24),transparent 34%),
+        radial-gradient(circle at 20% 20%,rgba(56,189,248,.3),transparent 30%),
+        radial-gradient(circle at 80% 80%,rgba(139,92,246,.26),transparent 30%),
         linear-gradient(180deg,#111827,#020617);
     display:grid;
     place-items:center;
@@ -329,53 +311,56 @@ section{
     letter-spacing:-.07em;
 }
 
-/* Trusted tech */
+/* ========================= */
+/* Trusted Technologies */
+/* ========================= */
 .tech-strip{
-    padding:50px 7% 0;
-    margin-top:-70px;
+    padding-top:0;
 }
 
-.tech-card{
+.tech-box{
     max-width:1180px;
-    margin:0 auto;
-    padding:24px;
-    border-radius:30px;
+    margin:auto;
+    padding:26px;
     border:1px solid var(--border);
+    border-radius:34px;
     background:rgba(255,255,255,.055);
-    backdrop-filter:blur(20px);
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    gap:24px;
-    flex-wrap:wrap;
+    backdrop-filter:blur(22px);
+    box-shadow:0 30px 100px rgba(0,0,0,.2);
 }
 
-.tech-card span{
-    color:#93c5fd;
-    font-size:13px;
-    font-weight:900;
-    letter-spacing:.16em;
+.tech-title{
+    text-align:center;
+    color:#94a3b8;
     text-transform:uppercase;
+    font-size:12px;
+    letter-spacing:.2em;
+    font-weight:900;
+    margin-bottom:20px;
 }
 
 .tech-list{
     display:flex;
+    justify-content:center;
     gap:12px;
     flex-wrap:wrap;
 }
 
-.tech-list strong{
-    padding:10px 14px;
+.tech-list span{
+    padding:12px 16px;
     border-radius:999px;
-    background:rgba(255,255,255,.075);
+    color:#e2e8f0;
+    background:rgba(255,255,255,.07);
     border:1px solid rgba(255,255,255,.1);
-    color:#e5e7eb;
-    font-size:13px;
+    font-size:14px;
+    font-weight:800;
 }
 
-/* Section headings */
+/* ========================= */
+/* Section Head */
+/* ========================= */
 .section-head{
-    max-width:760px;
+    max-width:780px;
     margin-bottom:70px;
 }
 
@@ -407,7 +392,9 @@ section{
     line-height:1.7;
 }
 
+/* ========================= */
 /* Portfolio Bento */
+/* ========================= */
 .bento-work{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -422,8 +409,7 @@ section{
     border:1px solid rgba(255,255,255,.14);
     background:rgba(255,255,255,.06);
     box-shadow:0 35px 120px rgba(0,0,0,.35);
-    transition:.45s ease;
-    transform-style:preserve-3d;
+    transition:transform .45s ease,border-color .45s ease,box-shadow .45s ease;
 }
 
 .bento-large{
@@ -437,66 +423,8 @@ section{
     object-fit:cover;
     object-position:center center;
     display:block;
-    filter:brightness(.62) saturate(.9);
-    transition:.55s ease;
-}
-
-.bento-item:hover{
-    transform:translateY(-10px) scale(1.01);
-    border-color:rgba(96,165,250,.58);
-    box-shadow:0 45px 150px rgba(59,130,246,.18),0 35px 120px rgba(0,0,0,.45);
-}
-
-.bento-item:hover img{
-    filter:brightness(.82) saturate(1.05);
-    transform:scale(1.07);
-}
-
-.bento-overlay{
-    position:absolute;
-    inset:0;
-    padding:34px;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    background:linear-gradient(to top,rgba(2,6,23,.96),rgba(2,6,23,.22),transparent);
-    z-index:2;
-}
-
-.bento-overlay span{
-    width:max-content;
-    padding:8px 13px;
-    border-radius:999px;
-    background:rgba(96,165,250,.22);
-    color:#bfdbfe;
-    font-weight:900;
-    font-size:13px;
-    margin-bottom:14px;
-}
-
-.bento-overlay h3{
-    font-size:clamp(30px,4vw,60px);
-    line-height:1;
-    letter-spacing:-.055em;
-    margin-bottom:10px;
-}
-
-.bento-overlay p{
-    color:#cbd5e1;
-    font-size:18px;
-    max-width:560px;
-    line-height:1.6;
-    margin-bottom:18px;
-}
-
-.bento-overlay strong{
-    font-size:15px;
-    transition:.3s;
-}
-
-.bento-item:hover .bento-overlay strong{
-    color:#93c5fd;
-    letter-spacing:.02em;
+    filter:brightness(.55) saturate(.95);
+    transition:transform .6s ease, filter .5s ease;
 }
 
 .bento-item img[alt="IronPulse Fitness Club"]{
@@ -511,7 +439,66 @@ section{
     object-position:center center;
 }
 
-/* Results */
+.bento-item:hover{
+    transform:translateY(-10px);
+    border-color:rgba(96,165,250,.65);
+    box-shadow:0 45px 150px rgba(59,130,246,.18),0 35px 120px rgba(0,0,0,.42);
+}
+
+.bento-item:hover img{
+    filter:brightness(.76) saturate(1.06);
+    transform:scale(1.06);
+}
+
+.bento-overlay{
+    position:absolute;
+    inset:0;
+    padding:34px;
+    display:flex;
+    flex-direction:column;
+    justify-content:flex-end;
+    background:linear-gradient(to top,rgba(2,6,23,.95),rgba(2,6,23,.22),transparent);
+}
+
+.bento-overlay span,
+.sample-badge{
+    width:max-content;
+    padding:8px 13px;
+    border-radius:999px;
+    background:rgba(96,165,250,.22);
+    color:#bfdbfe;
+    font-weight:900;
+    font-size:13px;
+    margin-bottom:14px;
+}
+
+.bento-overlay h3{
+    font-size:clamp(28px,4vw,60px);
+    line-height:1;
+    letter-spacing:-.055em;
+    margin-bottom:10px;
+}
+
+.bento-overlay p{
+    color:#cbd5e1;
+    font-size:18px;
+    max-width:520px;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+.bento-overlay strong{
+    font-size:15px;
+    transition:.3s;
+}
+
+.bento-item:hover .bento-overlay strong{
+    color:#93c5fd;
+}
+
+/* ========================= */
+/* Stats */
+/* ========================= */
 .stats{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -522,13 +509,14 @@ section{
     padding:34px;
     border-radius:28px;
     border:1px solid var(--border);
-    background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.045));
+    background:rgba(255,255,255,.07);
+    backdrop-filter:blur(18px);
     transition:.35s;
 }
 
 .stat:hover{
     transform:translateY(-6px);
-    border-color:rgba(96,165,250,.35);
+    border-color:var(--border-strong);
 }
 
 .stat h3{
@@ -541,7 +529,9 @@ section{
     color:var(--muted);
 }
 
-/* Cards / Services */
+/* ========================= */
+/* Cards */
+/* ========================= */
 .services-grid,.choose-grid,.testimonials-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -558,21 +548,22 @@ section{
 }
 
 .card:hover{
-    transform:translateY(-6px);
+    transform:translateY(-6px) scale(1.01);
     background:rgba(255,255,255,.11);
-    border-color:rgba(96,165,250,.28);
+    border-color:rgba(96,165,250,.34);
+    box-shadow:0 30px 90px rgba(0,0,0,.28);
 }
 
 .service-icon{
-    width:50px;
-    height:50px;
-    border-radius:18px;
+    width:54px;
+    height:54px;
     display:grid;
     place-items:center;
-    font-size:24px;
-    margin-bottom:20px;
+    border-radius:18px;
     background:rgba(96,165,250,.16);
-    border:1px solid rgba(255,255,255,.1);
+    border:1px solid rgba(96,165,250,.2);
+    font-size:26px;
+    margin-bottom:18px;
 }
 
 .card h3{
@@ -586,7 +577,6 @@ section{
     line-height:1.7;
 }
 
-/* Process */
 .process{
     display:grid;
     grid-template-columns:repeat(6,1fr);
@@ -603,8 +593,8 @@ section{
 }
 
 .step:hover{
-    transform:translateY(-6px);
-    border-color:rgba(96,165,250,.4);
+    transform:translateY(-5px);
+    border-color:rgba(96,165,250,.38);
 }
 
 .step span{
@@ -614,23 +604,8 @@ section{
     margin-bottom:14px;
 }
 
-/* Testimonials */
 .testimonial{
-    min-height:245px;
-    display:flex;
-    flex-direction:column;
-    justify-content:space-between;
-}
-
-.review-badge{
-    width:max-content;
-    padding:7px 11px;
-    border-radius:999px;
-    background:rgba(96,165,250,.16);
-    color:#bfdbfe;
-    font-size:12px;
-    font-weight:900;
-    margin-bottom:20px;
+    min-height:250px;
 }
 
 .testimonial p{
@@ -639,53 +614,61 @@ section{
 
 .client{
     font-weight:900;
+    color:#fff;
 }
 
+.review-note{
+    color:#94a3b8;
+    font-size:13px;
+    margin-top:8px;
+}
+
+/* ========================= */
 /* FAQ Accordion */
+/* ========================= */
 .faq-list{
     max-width:980px;
-    margin:0 auto;
+    margin:auto;
     display:grid;
-    gap:14px;
+    gap:16px;
 }
 
 .faq-item{
-    cursor:pointer;
-    padding:0;
+    border-radius:28px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.07);
+    backdrop-filter:blur(22px);
     overflow:hidden;
 }
 
 .faq-question{
     width:100%;
-    background:transparent;
-    border:0;
-    color:var(--white);
-    text-align:left;
-    padding:28px 30px;
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:20px;
-    cursor:pointer;
+    gap:18px;
+    padding:24px 28px;
+    border:0;
+    background:transparent;
+    color:#fff;
     font-family:inherit;
-}
-
-.faq-question h3{
     font-size:20px;
-    letter-spacing:-.03em;
+    font-weight:900;
+    text-align:left;
+    cursor:pointer;
 }
 
 .faq-icon{
     width:34px;
     height:34px;
+    flex:0 0 34px;
     border-radius:50%;
     display:grid;
     place-items:center;
-    flex:0 0 auto;
-    background:rgba(96,165,250,.16);
+    background:rgba(96,165,250,.18);
     color:#bfdbfe;
-    font-weight:900;
-    transition:.35s;
+    font-size:24px;
+    transition:.3s;
 }
 
 .faq-item.active .faq-icon{
@@ -697,20 +680,18 @@ section{
 .faq-answer{
     max-height:0;
     overflow:hidden;
-    transition:max-height .4s ease, opacity .35s ease, padding .35s ease;
-    opacity:0;
+    transition:max-height .38s ease;
+}
+
+.faq-answer-inner{
+    padding:0 28px 26px;
     color:var(--muted);
-    line-height:1.7;
-    padding:0 30px;
+    line-height:1.75;
 }
 
-.faq-item.active .faq-answer{
-    max-height:180px;
-    opacity:1;
-    padding:0 30px 28px;
-}
-
+/* ========================= */
 /* Contact */
+/* ========================= */
 .contact-wrap{
     display:grid;
     grid-template-columns:.8fr 1.2fr;
@@ -722,6 +703,7 @@ section{
     border-radius:34px;
     border:1px solid var(--border);
     background:rgba(255,255,255,.08);
+    backdrop-filter:blur(22px);
 }
 
 .contact-info h3{
@@ -743,6 +725,7 @@ form{
     border-radius:34px;
     background:rgba(255,255,255,.08);
     border:1px solid var(--border);
+    backdrop-filter:blur(22px);
 }
 
 input,textarea,select{
@@ -757,14 +740,29 @@ input,textarea,select{
 }
 
 input:focus,textarea:focus,select:focus{
-    border-color:rgba(96,165,250,.55);
-    box-shadow:0 0 0 4px rgba(96,165,250,.08);
+    border-color:rgba(96,165,250,.7);
+    box-shadow:0 0 0 4px rgba(59,130,246,.12);
 }
 
 textarea{
     grid-column:1/-1;
     min-height:150px;
     resize:none;
+}
+
+.form-message{
+    grid-column:1/-1;
+    display:none;
+    padding:14px 16px;
+    border-radius:16px;
+    color:#dbeafe;
+    background:rgba(59,130,246,.13);
+    border:1px solid rgba(96,165,250,.24);
+    font-weight:700;
+}
+
+.form-message.show{
+    display:block;
 }
 
 form button{
@@ -781,89 +779,78 @@ form button{
 }
 
 form button:hover{
-    transform:translateY(-4px) scale(1.015);
-    box-shadow:0 22px 75px rgba(96,165,250,.35);
+    transform:translateY(-4px) scale(1.02);
+    box-shadow:0 18px 60px rgba(96,165,250,.35);
 }
 
-.form-message{
-    grid-column:1/-1;
-    display:none;
-    padding:14px 16px;
-    border-radius:18px;
-    background:rgba(34,197,94,.12);
-    border:1px solid rgba(34,197,94,.25);
-    color:#bbf7d0;
-    font-weight:700;
-}
-
+/* ========================= */
 /* Footer */
+/* ========================= */
 footer{
-    padding:0 7% 44px;
+    padding:70px 7% 34px;
+    border-top:1px solid var(--border);
     color:var(--muted);
+    background:rgba(2,6,23,.35);
 }
 
-.footer-card{
-    max-width:1180px;
-    margin:0 auto;
-    padding:46px;
-    border-top:1px solid var(--border);
-    border-radius:34px 34px 0 0;
-    background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+.footer-grid{
     display:grid;
-    grid-template-columns:1.1fr .8fr .9fr;
-    gap:34px;
+    grid-template-columns:1.2fr 1fr 1fr;
+    gap:40px;
+    max-width:1180px;
+    margin:0 auto 40px;
 }
 
 .footer-brand strong{
-    display:block;
     color:#fff;
-    font-size:24px;
-    letter-spacing:-.04em;
-    margin-bottom:10px;
+    font-size:20px;
+}
+
+.footer-brand p{
+    margin-top:10px;
+    line-height:1.7;
 }
 
 .footer-col h4{
     color:#fff;
-    font-size:14px;
-    text-transform:uppercase;
-    letter-spacing:.16em;
-    margin-bottom:18px;
+    margin-bottom:16px;
 }
 
-.footer-links{
-    display:grid;
-    gap:10px;
+.footer-col a{
+    display:block;
+    margin-bottom:10px;
+    color:#a1a8b8;
+    transition:.25s;
 }
 
-.footer-links a,.footer-contact a{
-    color:#cbd5e1;
-    transition:.3s;
-}
-
-.footer-links a:hover,.footer-contact a:hover{
-    color:#60a5fa;
+.footer-col a:hover{
+    color:#fff;
+    transform:translateX(4px);
 }
 
 .footer-bottom{
     max-width:1180px;
-    margin:0 auto;
-    padding-top:22px;
+    margin:auto;
+    padding-top:24px;
+    border-top:1px solid rgba(255,255,255,.08);
     display:flex;
     justify-content:space-between;
     gap:18px;
     flex-wrap:wrap;
 }
 
-/* Reveal animations */
+/* ========================= */
+/* Reveal + Cursor + Back Top */
+/* ========================= */
 .reveal{
     opacity:0;
-    transform:translateY(35px) scale(.98);
+    transform:translateY(35px);
     transition:opacity .9s ease, transform .9s ease;
 }
 
 .reveal.active{
     opacity:1;
-    transform:translateY(0) scale(1);
+    transform:translateY(0);
 }
 
 .cursor{
@@ -877,7 +864,6 @@ footer{
     transform:translate(-50%,-50%);
 }
 
-/* Back to top */
 #backToTop{
     position:fixed;
     right:28px;
@@ -888,16 +874,15 @@ footer{
     border-radius:50%;
     background:#fff;
     color:#020617;
-    font-size:26px;
     cursor:pointer;
     display:grid;
     place-items:center;
     opacity:0;
     visibility:hidden;
-    transform:translateY(10px) scale(.95);
+    transform:translateY(10px) scale(.96);
     transition:.35s;
     z-index:998;
-    box-shadow:0 18px 50px rgba(0,0,0,.35);
+    box-shadow:0 18px 55px rgba(0,0,0,.42);
 }
 
 #backToTop.show{
@@ -908,9 +893,12 @@ footer{
 
 #backToTop:hover{
     transform:translateY(-5px) scale(1.04);
-    box-shadow:0 22px 70px rgba(96,165,250,.28);
+    box-shadow:0 18px 70px rgba(96,165,250,.35);
 }
 
+/* ========================= */
+/* Responsive */
+/* ========================= */
 @media(max-width:1050px){
     .contact-wrap{
         grid-template-columns:1fr;
@@ -924,8 +912,8 @@ footer{
         grid-template-columns:repeat(3,1fr);
     }
 
-    .footer-card{
-        grid-template-columns:1fr;
+    .footer-grid{
+        grid-template-columns:1fr 1fr;
     }
 }
 
@@ -987,36 +975,32 @@ footer{
         padding-top:150px;
     }
 
-    .floating-card{
-        display:none;
+    .hero h1{
+        font-size:clamp(54px,14vw,82px);
     }
 
-    .tech-strip{
-        margin-top:-50px;
+    .floating-card{
+        display:none;
     }
 
     .stats,.services-grid,.choose-grid,.testimonials-grid,.process{
         grid-template-columns:1fr;
     }
 
-    .bento-overlay{
-        padding:26px;
-    }
-
-    .bento-overlay h3{
-        font-size:38px;
-    }
-
     form{
         grid-template-columns:1fr;
     }
 
-    .footer-card{
-        padding:34px 24px;
-    }
-
     .cursor{
         display:none;
+    }
+
+    .footer-grid{
+        grid-template-columns:1fr;
+    }
+
+    .bento-overlay{
+        padding:26px;
     }
 }
 </style>
@@ -1028,7 +1012,6 @@ footer{
     <div class="loader-inner">
         <h1>Apex Web Studio</h1>
         <p>Loading...</p>
-        <div class="loader-line"><span></span></div>
     </div>
 </div>
 
@@ -1047,7 +1030,7 @@ footer{
         <a href="#contact" class="nav-cta">Start Project</a>
     </div>
 
-    <div class="menu">
+    <div class="menu" aria-label="Open navigation">
         <span></span><span></span><span></span>
     </div>
 </nav>
@@ -1057,7 +1040,6 @@ footer{
         <div class="badge">Premium Websites • American Business Style • Built to Convert</div>
         <h1>Build Websites That <span class="gradient-text">Sell Before You Even Speak.</span></h1>
         <p>We design premium websites that help American businesses look established, build trust instantly, and convert more visitors into paying customers.</p>
-
         <div class="buttons">
             <a href="#work" class="btn btn-primary">View Our Work</a>
             <a href="#contact" class="btn btn-secondary">Start Your Project</a>
@@ -1074,20 +1056,20 @@ footer{
     </div>
 </section>
 
-<div class="tech-strip reveal">
-    <div class="tech-card">
-        <span>Built With</span>
+<section class="tech-strip">
+    <div class="tech-box reveal">
+        <div class="tech-title">Built With</div>
         <div class="tech-list">
-            <strong>HTML5</strong>
-            <strong>CSS3</strong>
-            <strong>JavaScript</strong>
-            <strong>GitHub</strong>
-            <strong>Vercel</strong>
-            <strong>Responsive</strong>
-            <strong>SEO Ready</strong>
+            <span>HTML5</span>
+            <span>CSS3</span>
+            <span>JavaScript</span>
+            <span>GitHub</span>
+            <span>Vercel</span>
+            <span>Responsive</span>
+            <span>SEO Ready</span>
         </div>
     </div>
-</div>
+</section>
 
 <section id="work">
     <div class="section-head center reveal">
@@ -1099,7 +1081,7 @@ footer{
     <div class="bento-work reveal">
 
         <a class="bento-item bento-large" href="https://brightsmiledental-umber.vercel.app" target="_blank" rel="noopener">
-            <img src="dental.jpg" alt="BrightSmile Dental Clinic">
+            <img src="./dental.jpg" alt="BrightSmile Dental Clinic">
             <div class="bento-overlay">
                 <span>Dental Clinic</span>
                 <h3>BrightSmile Dental Clinic</h3>
@@ -1109,7 +1091,7 @@ footer{
         </a>
 
         <a class="bento-item" href="https://libertylegalgroup.vercel.app/" target="_blank" rel="noopener">
-            <img src="law.jpg" alt="Liberty Legal Group">
+            <img src="./law.jpg" alt="Liberty Legal Group">
             <div class="bento-overlay">
                 <span>Law Firm</span>
                 <h3>Liberty Legal Group</h3>
@@ -1127,7 +1109,7 @@ footer{
         </a>
 
         <a class="bento-item" href="https://pro-plumbing-usa.vercel.app" target="_blank" rel="noopener">
-            <img src="plumbing.jpg" alt="Pro Plumbing USA">
+            <img src="./plumbing.jpg" alt="Pro Plumbing USA">
             <div class="bento-overlay">
                 <span>Plumbing</span>
                 <h3>Pro Plumbing USA</h3>
@@ -1136,7 +1118,7 @@ footer{
         </a>
 
         <a class="bento-item" href="https://ironpulse-fitness-club-rho.vercel.app" target="_blank" rel="noopener">
-            <img src="gym.jpg" alt="IronPulse Fitness Club">
+            <img src="./gym.jpg" alt="IronPulse Fitness Club">
             <div class="bento-overlay">
                 <span>Fitness Club</span>
                 <h3>IronPulse Fitness Club</h3>
@@ -1155,10 +1137,10 @@ footer{
     </div>
 
     <div class="stats reveal">
-        <div class="stat"><h3><span class="counter" data-target="5">0</span></h3><p>Projects Completed</p></div>
-        <div class="stat"><h3><span class="counter" data-target="100">0</span>%</h3><p>Responsive Design</p></div>
-        <div class="stat"><h3><span class="counter" data-target="5">0</span></h3><p>Industries Served</p></div>
-        <div class="stat"><h3><span class="counter" data-target="24">0</span>h</h3><p>Average Response Time</p></div>
+        <div class="stat"><h3 data-count="5">0</h3><p>Projects Completed</p></div>
+        <div class="stat"><h3 data-count="100" data-suffix="%">0</h3><p>Responsive Design</p></div>
+        <div class="stat"><h3 data-count="5">0</h3><p>Industries Served</p></div>
+        <div class="stat"><h3 data-count="24" data-suffix="h">0</h3><p>Average Response Time</p></div>
     </div>
 </section>
 
@@ -1213,17 +1195,17 @@ footer{
 <section>
     <div class="section-head center reveal">
         <div class="kicker">Sample Client Feedback</div>
-        <h2>Demo reviews until real client feedback is available.</h2>
-        <p>These testimonials are placeholders and can be replaced with real reviews after your first client projects.</p>
+        <h2>Preview feedback style.</h2>
+        <p>These testimonials are demo placeholders until real client reviews are available.</p>
     </div>
 
     <div class="testimonials-grid reveal">
-        <div class="card testimonial"><div><div class="review-badge">Sample Review</div><p>“The website instantly made our business look more professional.”</p></div><div class="client">Sample Client</div></div>
-        <div class="card testimonial"><div><div class="review-badge">Sample Review</div><p>“Clean, fast, premium, and exactly the style we wanted.”</p></div><div class="client">Sample Client</div></div>
-        <div class="card testimonial"><div><div class="review-badge">Sample Review</div><p>“Our old site looked outdated. This redesign changed everything.”</p></div><div class="client">Sample Client</div></div>
-        <div class="card testimonial"><div><div class="review-badge">Sample Review</div><p>“The mobile version looks incredible.”</p></div><div class="client">Sample Client</div></div>
-        <div class="card testimonial"><div><div class="review-badge">Sample Review</div><p>“Professional design with strong attention to detail.”</p></div><div class="client">Sample Client</div></div>
-        <div class="card testimonial"><div><div class="review-badge">Sample Review</div><p>“It feels like a real premium brand now.”</p></div><div class="client">Sample Client</div></div>
+        <div class="card testimonial"><div class="sample-badge">Sample Review</div><p>“The website instantly made our business look more professional.”</p><div class="client">Sample Client</div><div class="review-note">Placeholder review</div></div>
+        <div class="card testimonial"><div class="sample-badge">Sample Review</div><p>“Clean, fast, premium, and exactly the style we wanted.”</p><div class="client">Sample Client</div><div class="review-note">Placeholder review</div></div>
+        <div class="card testimonial"><div class="sample-badge">Demo Review</div><p>“Our old site looked outdated. This redesign changed everything.”</p><div class="client">Sample Client</div><div class="review-note">Placeholder review</div></div>
+        <div class="card testimonial"><div class="sample-badge">Sample Review</div><p>“The mobile version looks incredible.”</p><div class="client">Sample Client</div><div class="review-note">Placeholder review</div></div>
+        <div class="card testimonial"><div class="sample-badge">Demo Review</div><p>“Professional design with strong attention to detail.”</p><div class="client">Sample Client</div><div class="review-note">Placeholder review</div></div>
+        <div class="card testimonial"><div class="sample-badge">Sample Review</div><p>“It feels like a real premium brand now.”</p><div class="client">Sample Client</div><div class="review-note">Placeholder review</div></div>
     </div>
 </section>
 
@@ -1234,54 +1216,29 @@ footer{
     </div>
 
     <div class="faq-list reveal">
-        <div class="card faq-item">
-            <button class="faq-question" type="button"><h3>Do you build websites for American businesses?</h3><span class="faq-icon">+</span></button>
-            <div class="faq-answer">Yes. Apex Web Studio focuses on modern websites designed for American service businesses.</div>
+        <div class="faq-item">
+            <button class="faq-question">Do you build websites for American businesses?<span class="faq-icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes. Apex Web Studio focuses on modern websites designed for American service businesses.</div></div>
         </div>
-
-        <div class="card faq-item">
-            <button class="faq-question" type="button"><h3>Are your websites mobile friendly?</h3><span class="faq-icon">+</span></button>
-            <div class="faq-answer">Yes. Every website is fully responsive and optimized for phones, tablets, and desktops.</div>
+        <div class="faq-item">
+            <button class="faq-question">Are your websites mobile friendly?<span class="faq-icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes. Every website is fully responsive and optimized for mobile devices.</div></div>
         </div>
-
-        <div class="card faq-item">
-            <button class="faq-question" type="button"><h3>Can you redesign my current website?</h3><span class="faq-icon">+</span></button>
-            <div class="faq-answer">Yes. We can turn outdated websites into modern premium digital experiences.</div>
+        <div class="faq-item">
+            <button class="faq-question">Can you redesign my current website?<span class="faq-icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes. We can turn outdated websites into premium modern experiences.</div></div>
         </div>
-
-        <div class="card faq-item">
-            <button class="faq-question" type="button"><h3>Do you include SEO?</h3><span class="faq-icon">+</span></button>
-            <div class="faq-answer">Yes. We include clean structure, headings, meta tags, fast loading, and SEO-ready layout.</div>
+        <div class="faq-item">
+            <button class="faq-question">Do you include SEO?<span class="faq-icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes. We include clean structure, headings, meta tags, and SEO-ready layout.</div></div>
         </div>
-
-        <div class="card faq-item">
-            <button class="faq-question" type="button"><h3>Can I view the website before launch?</h3><span class="faq-icon">+</span></button>
-            <div class="faq-answer">Yes. You can review the website before it goes live.</div>
+        <div class="faq-item">
+            <button class="faq-question">Can I view the website before launch?<span class="faq-icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Yes. You can review the website before it goes live.</div></div>
         </div>
-
-        <div class="card faq-item">
-            <button class="faq-question" type="button"><h3>Do you make landing pages?</h3><span class="faq-icon">+</span></button>
-            <div class="faq-answer">Yes. We create high-converting landing pages for services, ads, and campaigns.</div>
-        </div>
-
-        <div class="card faq-item">
-            <button class="faq-question" type="button"><h3>Can you make different styles?</h3><span class="faq-icon">+</span></button>
-            <div class="faq-answer">Yes. Each website can have a unique style based on the industry and brand.</div>
-        </div>
-
-        <div class="card faq-item">
-            <button class="faq-question" type="button"><h3>Do you use templates?</h3><span class="faq-icon">+</span></button>
-            <div class="faq-answer">No. The goal is to create a handcrafted premium look for every industry.</div>
-        </div>
-
-        <div class="card faq-item">
-            <button class="faq-question" type="button"><h3>Can you add contact forms?</h3><span class="faq-icon">+</span></button>
-            <div class="faq-answer">Yes. Contact forms, CTA buttons, maps, and social links can be included.</div>
-        </div>
-
-        <div class="card faq-item">
-            <button class="faq-question" type="button"><h3>How do I start?</h3><span class="faq-icon">+</span></button>
-            <div class="faq-answer">Send your business details, website goal, and preferred style through the contact form.</div>
+        <div class="faq-item">
+            <button class="faq-question">How do I start?<span class="faq-icon">+</span></button>
+            <div class="faq-answer"><div class="faq-answer-inner">Send your business details, website goal, and preferred style through the contact form.</div></div>
         </div>
     </div>
 </section>
@@ -1298,30 +1255,30 @@ footer{
             <p>Tell us about your business, your goal, your budget, and the kind of website you want. Apex Web Studio will help you create a premium online presence that customers trust.</p>
         </div>
 
-        <form id="projectForm" action="https://formsubmit.co/ajax/your-email@example.com" method="POST">
-            <input type="hidden" name="_subject" value="New Apex Web Studio Project Request">
-            <input type="hidden" name="_template" value="table">
-            <input type="text" name="Name" placeholder="Name" required>
-            <input type="text" name="Business" placeholder="Business">
-            <input type="email" name="Email" placeholder="Email" required>
-            <input type="tel" name="Phone" placeholder="Phone">
-            <input type="url" name="Website" placeholder="Current Website">
-            <select name="Budget">
+        <form id="contactForm" action="https://formsubmit.co/ajax/your-email@example.com" method="POST">
+            <input type="hidden" name="_subject" value="New Project Request from Apex Web Studio">
+            <input type="hidden" name="_captcha" value="false">
+            <input type="text" name="name" placeholder="Name" required>
+            <input type="text" name="business" placeholder="Business">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="tel" name="phone" placeholder="Phone">
+            <input type="url" name="website" placeholder="Current Website">
+            <select name="budget">
                 <option value="">Budget</option>
                 <option>$1,000 - $3,000</option>
                 <option>$3,000 - $5,000</option>
                 <option>$5,000 - $10,000</option>
                 <option>$10,000+</option>
             </select>
-            <textarea name="Message" placeholder="Message"></textarea>
-            <button type="submit">✈ Send Project Request</button>
-            <div class="form-message" id="formMessage"></div>
+            <textarea name="message" placeholder="Message"></textarea>
+            <div class="form-message" id="formMessage">Thank you! Your project request has been sent successfully.</div>
+            <button type="submit">→ Send Project Request</button>
         </form>
     </div>
 </section>
 
 <footer>
-    <div class="footer-card">
+    <div class="footer-grid">
         <div class="footer-brand">
             <strong>Apex Web Studio</strong>
             <p>Premium Websites for American Businesses.</p>
@@ -1329,22 +1286,18 @@ footer{
 
         <div class="footer-col">
             <h4>Navigation</h4>
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#work">Work</a>
-                <a href="#services">Services</a>
-                <a href="#about">About</a>
-                <a href="#faq">FAQ</a>
-            </div>
+            <a href="#home">Home</a>
+            <a href="#work">Work</a>
+            <a href="#services">Services</a>
+            <a href="#about">About</a>
+            <a href="#faq">FAQ</a>
         </div>
 
-        <div class="footer-col footer-contact">
+        <div class="footer-col">
             <h4>Contact</h4>
-            <div class="footer-links">
-                <a href="mailto:hello@apexwebstudio.com">hello@apexwebstudio.com</a>
-                <a href="#" aria-label="GitHub">GitHub</a>
-                <a href="#" aria-label="LinkedIn">LinkedIn</a>
-            </div>
+            <a href="mailto:hello@apexwebstudio.com">hello@apexwebstudio.com</a>
+            <a href="#" aria-label="GitHub">GitHub</a>
+            <a href="#" aria-label="LinkedIn">LinkedIn</a>
         </div>
     </div>
 
@@ -1354,7 +1307,12 @@ footer{
     </div>
 </footer>
 
-<button id="backToTop" aria-label="Back to top">↑</button>
+<button id="backToTop" aria-label="Back to top">
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
+        <path d="M12 19V5" stroke="black" stroke-width="2" stroke-linecap="round"/>
+        <path d="M6 11L12 5L18 11" stroke="black" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+</button>
 
 <script>
 const loader = document.querySelector('.loader');
@@ -1388,39 +1346,52 @@ const observer = new IntersectionObserver(entries=>{
 
 reveals.forEach(el=>observer.observe(el));
 
-let counted = false;
 const counterObserver = new IntersectionObserver(entries=>{
     entries.forEach(entry=>{
-        if(entry.isIntersecting && !counted){
-            counted = true;
-            document.querySelectorAll('.counter').forEach(counter=>{
-                const target = Number(counter.dataset.target);
-                let current = 0;
-                const increment = Math.max(1, Math.ceil(target / 38));
-                const run = () => {
-                    current += increment;
-                    if(current >= target){
-                        counter.textContent = target;
-                    }else{
-                        counter.textContent = current;
-                        requestAnimationFrame(run);
-                    }
-                };
-                run();
-            });
+        if(entry.isIntersecting){
+            const number = entry.target;
+            if(number.dataset.done) return;
+
+            const target = Number(number.dataset.count || 0);
+            const suffix = number.dataset.suffix || "";
+            let current = 0;
+            const increment = Math.max(1, Math.ceil(target / 45));
+
+            const timer = setInterval(()=>{
+                current += increment;
+                if(current >= target){
+                    current = target;
+                    clearInterval(timer);
+                }
+                number.textContent = current + suffix;
+            },24);
+
+            number.dataset.done = "true";
         }
     });
-},{threshold:.35});
+},{threshold:.4});
 
-const stats = document.querySelector('.stats');
-if(stats) counterObserver.observe(stats);
+document.querySelectorAll('[data-count]').forEach(num=>counterObserver.observe(num));
 
-document.querySelectorAll('.faq-question').forEach(button=>{
+document.querySelectorAll('.faq-item').forEach(item=>{
+    const button = item.querySelector('.faq-question');
+    const answer = item.querySelector('.faq-answer');
+    const icon = item.querySelector('.faq-icon');
+
     button.addEventListener('click',()=>{
-        const item = button.closest('.faq-item');
-        const icon = item.querySelector('.faq-icon');
-        item.classList.toggle('active');
-        icon.textContent = item.classList.contains('active') ? '−' : '+';
+        const isOpen = item.classList.contains('active');
+
+        document.querySelectorAll('.faq-item').forEach(other=>{
+            other.classList.remove('active');
+            other.querySelector('.faq-answer').style.maxHeight = null;
+            other.querySelector('.faq-icon').textContent = '+';
+        });
+
+        if(!isOpen){
+            item.classList.add('active');
+            answer.style.maxHeight = answer.scrollHeight + 'px';
+            icon.textContent = '−';
+        }
     });
 });
 
@@ -1440,34 +1411,42 @@ window.addEventListener('scroll',()=>{
 });
 
 backToTop.addEventListener('click',()=>{
-    window.scrollTo({top:0, behavior:'smooth'});
+    window.scrollTo({top:0,behavior:'smooth'});
 });
 
-const form = document.getElementById('projectForm');
+const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
-form.addEventListener('submit',async e=>{
+contactForm.addEventListener('submit',async e=>{
     e.preventDefault();
 
-    formMessage.style.display = 'block';
-    formMessage.textContent = 'Sending your project request...';
+    const button = contactForm.querySelector('button');
+    const originalText = button.textContent;
+    button.textContent = 'Sending...';
+    button.disabled = true;
 
     try{
-        const response = await fetch(form.action,{
+        const response = await fetch(contactForm.action,{
             method:'POST',
-            body:new FormData(form),
+            body:new FormData(contactForm),
             headers:{'Accept':'application/json'}
         });
 
         if(response.ok){
-            form.reset();
             formMessage.textContent = 'Thank you! Your project request has been sent successfully.';
+            formMessage.classList.add('show');
+            contactForm.reset();
         }else{
-            formMessage.textContent = 'Please replace your-email@example.com with your real email before using this form.';
+            formMessage.textContent = 'Something went wrong. Please try again or email us directly.';
+            formMessage.classList.add('show');
         }
     }catch(error){
-        formMessage.textContent = 'Please replace your-email@example.com with your real email before using this form.';
+        formMessage.textContent = 'Something went wrong. Please try again or email us directly.';
+        formMessage.classList.add('show');
     }
+
+    button.textContent = originalText;
+    button.disabled = false;
 });
 </script>
 
