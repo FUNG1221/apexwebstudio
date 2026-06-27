@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Apex Web Studio | Premium Websites for American Businesses</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#030712;
+    --bg2:#050816;
+    --white:#ffffff;
+    --muted:#a1a8b8;
+    --blue:#3b82f6;
+    --cyan:#38bdf8;
+    --purple:#8b5cf6;
+    --glass:rgba(255,255,255,.08);
+    --border:rgba(255,255,255,.14);
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--bg);
+    color:var(--white);
+    overflow-x:hidden;
+}
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(59,130,246,.22),transparent 35%),
+        radial-gradient(circle at 80% 10%,rgba(139,92,246,.18),transparent 30%),
+        radial-gradient(circle at 50% 90%,rgba(56,189,248,.12),transparent 30%);
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-size:80px 80px;
+    mask-image:linear-gradient(to bottom,black,transparent 85%);
+    z-index:-1;
+}
+
+a{
+    color:inherit;
+    text-decoration:none;
+}
+
+section{
+    padding:130px 7%;
+    position:relative;
+}
+
+.navbar{
+    position:fixed;
+    top:22px;
+    left:50%;
+    transform:translateX(-50%);
+    width:88%;
+    max-width:1180px;
+    padding:14px 18px;
+    border:1px solid var(--border);
+    background:rgba(5,8,22,.72);
+    backdrop-filter:blur(24px);
+    border-radius:999px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    z-index:999;
+    box-shadow:0 20px 80px rgba(0,0,0,.35);
+}
+
+.logo{
+    font-size:18px;
+    font-weight:900;
+    letter-spacing:-.04em;
+}
+
+.logo span{
+    background:linear-gradient(135deg,var(--blue),var(--cyan));
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.nav-links{
+    display:flex;
+    gap:26px;
+    align-items:center;
+}
+
+.nav-links a{
+    font-size:14px;
+    color:#cbd5e1;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:#fff;
+}
+
+.nav-cta{
+    padding:11px 18px;
+    border-radius:999px;
+    background:#fff;
+    color:#020617!important;
+    font-weight:800;
+}
+
+.menu{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    cursor:pointer;
+}
+
+.menu span{
+    width:24px;
+    height:2px;
+    background:white;
+    transition:.3s;
+}
+
+.hero{
+    min-height:100vh;
+    padding-top:190px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+}
+
+.hero-content{
+    max-width:1100px;
+}
+
+.badge{
+    display:inline-flex;
+    gap:10px;
+    align-items:center;
+    padding:10px 16px;
+    border:1px solid var(--border);
+    border-radius:999px;
+    background:rgba(255,255,255,.07);
+    backdrop-filter:blur(20px);
+    color:#dbeafe;
+    font-size:14px;
+    margin-bottom:30px;
+}
+
+.hero h1{
+    font-size:clamp(58px,9vw,132px);
+    line-height:.88;
+    letter-spacing:-.08em;
+    font-weight:900;
+    margin-bottom:30px;
+}
+
+.gradient-text{
+    background:linear-gradient(135deg,#fff,#93c5fd,#38bdf8,#a78bfa);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.hero p{
+    max-width:720px;
+    margin:0 auto 40px;
+    font-size:clamp(18px,2vw,24px);
+    line-height:1.65;
+    color:var(--muted);
+}
+
+.buttons{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    padding:16px 26px;
+    border-radius:999px;
+    font-weight:800;
+    transition:.35s;
+    border:1px solid var(--border);
+}
+
+.btn-primary{
+    background:#fff;
+    color:#020617;
+}
+
+.btn-secondary{
+    background:rgba(255,255,255,.08);
+    backdrop-filter:blur(20px);
+}
+
+.btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 20px 60px rgba(59,130,246,.25);
+}
+
+.floating-card{
+    margin:70px auto 0;
+    max-width:960px;
+    padding:18px;
+    border-radius:34px;
+    background:linear-gradient(180deg,rgba(255,255,255,.15),rgba(255,255,255,.05));
+    border:1px solid var(--border);
+    box-shadow:0 40px 120px rgba(0,0,0,.5);
+}
+
+.browser-top{
+    height:44px;
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:0 12px;
+}
+
+.dot{
+    width:11px;
+    height:11px;
+    border-radius:50%;
+    background:#64748b;
+}
+
+.preview-window{
+    height:420px;
+    border-radius:24px;
+    background:
+        linear-gradient(135deg,rgba(59,130,246,.35),rgba(139,92,246,.22)),
+        linear-gradient(180deg,#111827,#020617);
+    display:grid;
+    place-items:center;
+    overflow:hidden;
+}
+
+.preview-window h2{
+    font-size:clamp(38px,7vw,90px);
+    letter-spacing:-.07em;
+}
+
+.section-head{
+    max-width:760px;
+    margin-bottom:70px;
+}
+
+.section-head.center{
+    text-align:center;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.kicker{
+    color:#60a5fa;
+    font-weight:900;
+    text-transform:uppercase;
+    letter-spacing:.18em;
+    font-size:13px;
+    margin-bottom:18px;
+}
+
+.section-head h2{
+    font-size:clamp(42px,6vw,86px);
+    line-height:.95;
+    letter-spacing:-.065em;
+    margin-bottom:24px;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.7;
+}
+
+.work-grid{
+    display:grid;
+    gap:36px;
+}
+
+.project-card{
+    display:grid;
+    grid-template-columns:1.35fr .65fr;
+    gap:28px;
+    padding:22px;
+    border-radius:36px;
+    border:1px solid var(--border);
+    background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04));
+    backdrop-filter:blur(24px);
+    box-shadow:0 30px 100px rgba(0,0,0,.28);
+    transition:.45s;
+}
+
+.project-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(96,165,250,.55);
+}
+
+.iframe-box{
+    height:430px;
+    border-radius:26px;
+    overflow:hidden;
+    background:#fff;
+    position:relative;
+}
+
+.iframe-box iframe{
+    width:1440px;
+    height:900px;
+    border:0;
+    transform:scale(.52);
+    transform-origin:top left;
+}
+
+.project-info{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    padding:20px;
+}
+
+.tag{
+    display:inline-block;
+    width:max-content;
+    padding:8px 12px;
+    border-radius:999px;
+    background:rgba(59,130,246,.16);
+    color:#bfdbfe;
+    font-size:13px;
+    font-weight:800;
+    margin-bottom:20px;
+}
+
+.project-info h3{
+    font-size:36px;
+    letter-spacing:-.04em;
+    margin-bottom:16px;
+}
+
+.project-info p{
+    color:var(--muted);
+    line-height:1.7;
+    margin-bottom:28px;
+}
+
+.live-link{
+    width:max-content;
+    padding:13px 18px;
+    border-radius:999px;
+    background:white;
+    color:#020617;
+    font-weight:900;
+}
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:18px;
+}
+
+.stat{
+    padding:34px;
+    border-radius:28px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.07);
+}
+
+.stat h3{
+    font-size:46px;
+    letter-spacing:-.05em;
+    margin-bottom:8px;
+}
+
+.stat p{
+    color:var(--muted);
+}
+
+.services-grid,.choose-grid,.testimonials-grid,.faq-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:22px;
+}
+
+.card{
+    padding:32px;
+    border-radius:30px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.07);
+    backdrop-filter:blur(22px);
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-6px);
+    background:rgba(255,255,255,.11);
+}
+
+.card h3{
+    font-size:24px;
+    margin-bottom:14px;
+    letter-spacing:-.03em;
+}
+
+.card p{
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.process{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:14px;
+}
+
+.step{
+    padding:28px 20px;
+    border-radius:28px;
+    background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04));
+    border:1px solid var(--border);
+    text-align:center;
+}
+
+.step span{
+    display:block;
+    color:#60a5fa;
+    font-weight:900;
+    margin-bottom:14px;
+}
+
+.testimonial{
+    min-height:230px;
+}
+
+.testimonial p{
+    margin-bottom:24px;
+}
+
+.client{
+    font-weight:900;
+}
+
+.faq-item{
+    cursor:pointer;
+}
+
+.faq-answer{
+    max-height:0;
+    overflow:hidden;
+    transition:.35s;
+    color:var(--muted);
+    line-height:1.7;
+}
+
+.faq-item.active .faq-answer{
+    max-height:180px;
+    margin-top:16px;
+}
+
+.contact-wrap{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:34px;
+}
+
+.contact-info{
+    padding:42px;
+    border-radius:34px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.08);
+}
+
+.contact-info h3{
+    font-size:38px;
+    letter-spacing:-.05em;
+    margin-bottom:20px;
+}
+
+.contact-info p{
+    color:var(--muted);
+    line-height:1.8;
+}
+
+form{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    padding:28px;
+    border-radius:34px;
+    background:rgba(255,255,255,.08);
+    border:1px solid var(--border);
+}
+
+input,textarea,select{
+    width:100%;
+    padding:17px;
+    border-radius:18px;
+    border:1px solid var(--border);
+    background:rgba(2,6,23,.7);
+    color:white;
+    outline:none;
+    font-family:inherit;
+}
+
+textarea{
+    grid-column:1/-1;
+    min-height:150px;
+    resize:none;
+}
+
+form button{
+    grid-column:1/-1;
+    border:0;
+    cursor:pointer;
+    padding:18px;
+    border-radius:999px;
+    font-weight:900;
+    background:white;
+    color:#020617;
+    font-size:16px;
+}
+
+footer{
+    padding:60px 7%;
+    border-top:1px solid var(--border);
+    display:flex;
+    justify-content:space-between;
+    gap:20px;
+    flex-wrap:wrap;
+    color:var(--muted);
+}
+
+.footer-links{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+}
+
+.reveal{
+    opacity:0;
+    transform:translateY(35px);
+    transition:1s;
+}
+
+.reveal.active{
+    opacity:1;
+    transform:translateY(0);
+}
+
+.loader{
+    position:fixed;
+    inset:0;
+    background:#020617;
+    z-index:9999;
+    display:grid;
+    place-items:center;
+    transition:.8s;
+}
+
+.loader.hide{
+    opacity:0;
+    pointer-events:none;
+}
+
+.loader h1{
+    font-size:clamp(42px,8vw,90px);
+    letter-spacing:-.07em;
+    background:linear-gradient(135deg,#fff,#60a5fa,#a78bfa);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.cursor{
+    position:fixed;
+    width:22px;
+    height:22px;
+    border:1px solid rgba(255,255,255,.5);
+    border-radius:50%;
+    pointer-events:none;
+    z-index:99999;
+    transform:translate(-50%,-50%);
+}
+
+@media(max-width:1050px){
+    .project-card,.contact-wrap{
+        grid-template-columns:1fr;
+    }
+
+    .stats,.services-grid,.choose-grid,.testimonials-grid,.faq-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .process{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:768px){
+    section{
+        padding:90px 22px;
+    }
+
+    .navbar{
+        width:92%;
+    }
+
+    .nav-links{
+        position:absolute;
+        top:72px;
+        left:0;
+        right:0;
+        flex-direction:column;
+        padding:28px;
+        border-radius:28px;
+        background:rgba(5,8,22,.96);
+        border:1px solid var(--border);
+        display:none;
+    }
+
+    .nav-links.active{
+        display:flex;
+    }
+
+    .menu{
+        display:flex;
+    }
+
+    .menu.active span:nth-child(1){
+        transform:rotate(45deg) translate(5px,5px);
+    }
+
+    .menu.active span:nth-child(2){
+        opacity:0;
+    }
+
+    .menu.active span:nth-child(3){
+        transform:rotate(-45deg) translate(5px,-5px);
+    }
+
+    .hero{
+        padding-top:150px;
+    }
+
+    .floating-card{
+        display:none;
+    }
+
+    .stats,.services-grid,.choose-grid,.testimonials-grid,.faq-grid,.process{
+        grid-template-columns:1fr;
+    }
+
+    .iframe-box{
+        height:320px;
+    }
+
+    .iframe-box iframe{
+        transform:scale(.36);
+    }
+
+    .project-info h3{
+        font-size:30px;
+    }
+
+    form{
+        grid-template-columns:1fr;
+    }
+
+    .cursor{
+        display:none;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="loader">
+    <h1>Apex Web Studio</h1>
+</div>
+
+<div class="cursor"></div>
+
+<nav class="navbar">
+    <a href="#home" class="logo">Apex <span>Web Studio</span></a>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#work">Work</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#about">About</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact" class="nav-cta">Start Project</a>
+    </div>
+
+    <div class="menu">
+        <span></span><span></span><span></span>
+    </div>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-content reveal">
+        <div class="badge">Premium Websites • American Business Style • Built to Convert</div>
+        <h1>Build Websites That <span class="gradient-text">Sell Before You Even Speak.</span></h1>
+        <p>Premium websites crafted for American businesses that want to dominate their market, look expensive, and convert visitors into real customers.</p>
+        <div class="buttons">
+            <a href="#work" class="btn btn-primary">View Our Work</a>
+            <a href="#contact" class="btn btn-secondary">Start Your Project</a>
+        </div>
+
+        <div class="floating-card">
+            <div class="browser-top">
+                <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+            </div>
+            <div class="preview-window">
+                <h2>Premium Digital Experiences</h2>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="work">
+    <div class="section-head center reveal">
+        <div class="kicker">Selected Work</div>
+        <h2>Real websites. Live previews. Built to impress.</h2>
+        <p>Every project below is a deployed Vercel website with a real live preview.</p>
+    </div>
+
+    <div class="work-grid">
+
+        <div class="project-card reveal">
+            <div class="iframe-box">
+                <iframe src="https://brightsmiledental-umber.vercel.app"></iframe>
+            </div>
+            <div class="project-info">
+                <span class="tag">Dental Clinic</span>
+                <h3>BrightSmile Dental Clinic</h3>
+                <p>A modern American dental clinic website with clean visuals, service sections, trust-building layout, and strong appointment-focused design.</p>
+                <a href="https://brightsmiledental-umber.vercel.app" target="_blank" class="live-link">View Live Website →</a>
+            </div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="iframe-box">
+                <iframe src="https://libertylegalgroup.vercel.app/"></iframe>
+            </div>
+            <div class="project-info">
+                <span class="tag">Law Firm</span>
+                <h3>Liberty Legal Group</h3>
+                <p>A premium law firm website with authority-focused design, attorney sections, case results, testimonials, and consultation conversion flow.</p>
+                <a href="https://libertylegalgroup.vercel.app/" target="_blank" class="live-link">View Live Website →</a>
+            </div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="iframe-box">
+                <iframe src="https://prime-realty-group-ftzo.vercel.app/"></iframe>
+            </div>
+            <div class="project-info">
+                <span class="tag">Real Estate</span>
+                <h3>Prime Realty Group</h3>
+                <p>A luxury real estate portfolio website designed with editorial spacing, premium property visuals, elegant typography, and high-end positioning.</p>
+                <a href="https://prime-realty-group-ftzo.vercel.app/" target="_blank" class="live-link">View Live Website →</a>
+            </div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="iframe-box">
+                <iframe src="https://pro-plumbing-usa.vercel.app"></iframe>
+            </div>
+            <div class="project-info">
+                <span class="tag">Home Service</span>
+                <h3>Pro Plumbing USA</h3>
+                <p>A bold American plumbing company website with emergency CTA, strong trust signals, service cards, and a fast local business feel.</p>
+                <a href="https://pro-plumbing-usa.vercel.app" target="_blank" class="live-link">View Live Website →</a>
+            </div>
+        </div>
+
+        <div class="project-card reveal">
+            <div class="iframe-box">
+                <iframe src="https://ironpulse-fitness-club-rho.vercel.app"></iframe>
+            </div>
+            <div class="project-info">
+                <span class="tag">Fitness Club</span>
+                <h3>IronPulse Fitness Club</h3>
+                <p>A high-energy fitness website with cinematic visuals, membership-focused sections, transformation messaging, and premium gym branding.</p>
+                <a href="https://ironpulse-fitness-club-rho.vercel.app" target="_blank" class="live-link">View Live Website →</a>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<section id="about">
+    <div class="section-head center reveal">
+        <div class="kicker">Results</div>
+        <h2>Designed like a product. Built like a business asset.</h2>
+        <p>Apex Web Studio creates websites that look premium, load fast, work on mobile, and help businesses stand out immediately.</p>
+    </div>
+
+    <div class="stats reveal">
+        <div class="stat"><h3>50+</h3><p>Websites</p></div>
+        <div class="stat"><h3>100%</h3><p>Responsive</p></div>
+        <div class="stat"><h3>95+</h3><p>PageSpeed Goal</p></div>
+        <div class="stat"><h3>24h</h3><p>Average Response</p></div>
+    </div>
+</section>
+
+<section id="services">
+    <div class="section-head reveal">
+        <div class="kicker">Services</div>
+        <h2>Premium services for businesses that want to look serious.</h2>
+    </div>
+
+    <div class="services-grid reveal">
+        <div class="card"><h3>Premium Business Websites</h3><p>High-end websites for local American businesses that need trust, clarity, and strong first impressions.</p></div>
+        <div class="card"><h3>Landing Pages</h3><p>Conversion-focused pages built for campaigns, leads, services, and paid traffic.</p></div>
+        <div class="card"><h3>Website Redesign</h3><p>Turn outdated websites into modern premium digital experiences.</p></div>
+        <div class="card"><h3>UI/UX Design</h3><p>Clean layouts, smart structure, strong spacing, and beautiful user flows.</p></div>
+        <div class="card"><h3>SEO Optimization</h3><p>Clean structure, optimized sections, fast loading, and search-friendly content.</p></div>
+        <div class="card"><h3>Mobile Optimization</h3><p>Every website is designed to look excellent on phones, tablets, and desktops.</p></div>
+    </div>
+</section>
+
+<section>
+    <div class="section-head center reveal">
+        <div class="kicker">Why Choose Apex</div>
+        <h2>Not template-looking. Not cheap-looking. Built to feel expensive.</h2>
+    </div>
+
+    <div class="choose-grid reveal">
+        <div class="card"><h3>Modern Design</h3><p>Premium layouts inspired by world-class technology brands.</p></div>
+        <div class="card"><h3>Lightning Fast</h3><p>Optimized for speed, performance, and smooth browsing.</p></div>
+        <div class="card"><h3>SEO Ready</h3><p>Structured pages that help businesses build online visibility.</p></div>
+        <div class="card"><h3>Mobile First</h3><p>Designed carefully for the screen customers use most.</p></div>
+        <div class="card"><h3>American Style</h3><p>Visual direction built for US service businesses and clients.</p></div>
+        <div class="card"><h3>Future Proof</h3><p>Clean, scalable websites that can grow with the business.</p></div>
+    </div>
+</section>
+
+<section id="process">
+    <div class="section-head center reveal">
+        <div class="kicker">Process</div>
+        <h2>A clean process from idea to launch.</h2>
+    </div>
+
+    <div class="process reveal">
+        <div class="step"><span>01</span><h3>Discovery</h3></div>
+        <div class="step"><span>02</span><h3>Strategy</h3></div>
+        <div class="step"><span>03</span><h3>Design</h3></div>
+        <div class="step"><span>04</span><h3>Development</h3></div>
+        <div class="step"><span>05</span><h3>Launch</h3></div>
+        <div class="step"><span>06</span><h3>Support</h3></div>
+    </div>
+</section>
+
+<section>
+    <div class="section-head center reveal">
+        <div class="kicker">Testimonials</div>
+        <h2>What clients say.</h2>
+    </div>
+
+    <div class="testimonials-grid reveal">
+        <div class="card testimonial"><p>“The website instantly made our business look more professional.”</p><div class="client">Michael R.</div></div>
+        <div class="card testimonial"><p>“Clean, fast, premium, and exactly the style we wanted.”</p><div class="client">Sarah J.</div></div>
+        <div class="card testimonial"><p>“Our old site looked outdated. This redesign changed everything.”</p><div class="client">David L.</div></div>
+        <div class="card testimonial"><p>“The mobile version looks incredible.”</p><div class="client">Amanda K.</div></div>
+        <div class="card testimonial"><p>“Professional design with strong attention to detail.”</p><div class="client">James W.</div></div>
+        <div class="card testimonial"><p>“It feels like a real premium brand now.”</p><div class="client">Olivia M.</div></div>
+        <div class="card testimonial"><p>“Beautiful visuals and very smooth user experience.”</p><div class="client">Robert H.</div></div>
+        <div class="card testimonial"><p>“Apex delivered exactly what we needed to look serious online.”</p><div class="client">Emily C.</div></div>
+    </div>
+</section>
+
+<section id="faq">
+    <div class="section-head center reveal">
+        <div class="kicker">FAQ</div>
+        <h2>Questions before starting?</h2>
+    </div>
+
+    <div class="faq-grid reveal">
+        <div class="card faq-item"><h3>Do you build websites for American businesses?</h3><div class="faq-answer">Yes. Apex Web Studio focuses on modern websites designed for American service businesses.</div></div>
+        <div class="card faq-item"><h3>Are your websites mobile friendly?</h3><div class="faq-answer">Yes. Every website is fully responsive and optimized for mobile devices.</div></div>
+        <div class="card faq-item"><h3>Can you redesign my current website?</h3><div class="faq-answer">Yes. We can turn outdated websites into premium modern experiences.</div></div>
+        <div class="card faq-item"><h3>Do you include SEO?</h3><div class="faq-answer">Yes. We include clean structure, headings, meta tags, and SEO-ready layout.</div></div>
+        <div class="card faq-item"><h3>Can I view the website before launch?</h3><div class="faq-answer">Yes. You can review the website before it goes live.</div></div>
+        <div class="card faq-item"><h3>Do you make landing pages?</h3><div class="faq-answer">Yes. We create high-converting landing pages for services, ads, and campaigns.</div></div>
+        <div class="card faq-item"><h3>Can you make different styles?</h3><div class="faq-answer">Yes. Each website can have a unique style based on the industry and brand.</div></div>
+        <div class="card faq-item"><h3>Do you use templates?</h3><div class="faq-answer">No. The goal is to create a handcrafted premium look.</div></div>
+        <div class="card faq-item"><h3>Can you add contact forms?</h3><div class="faq-answer">Yes. Contact forms, CTA buttons, maps, and social links can be included.</div></div>
+        <div class="card faq-item"><h3>How do I start?</h3><div class="faq-answer">Send your business details, website goal, and preferred style through the contact form.</div></div>
+    </div>
+</section>
+
+<section id="contact">
+    <div class="section-head center reveal">
+        <div class="kicker">Contact</div>
+        <h2>Start your premium website project.</h2>
+    </div>
+
+    <div class="contact-wrap reveal">
+        <div class="contact-info">
+            <h3>Let’s build something expensive-looking.</h3>
+            <p>Tell us about your business, your goal, your budget, and the kind of website you want. Apex Web Studio will help you create a premium online presence that customers trust.</p>
+        </div>
+
+        <form>
+            <input type="text" placeholder="Name" required>
+            <input type="text" placeholder="Business">
+            <input type="email" placeholder="Email" required>
+            <input type="tel" placeholder="Phone">
+            <input type="url" placeholder="Current Website">
+            <select>
+                <option>Budget</option>
+                <option>$1,000 - $3,000</option>
+                <option>$3,000 - $5,000</option>
+                <option>$5,000 - $10,000</option>
+                <option>$10,000+</option>
+            </select>
+            <textarea placeholder="Message"></textarea>
+            <button type="submit">Send Project Request</button>
+        </form>
+    </div>
+</section>
+
+<footer>
+    <div>
+        <strong>Apex Web Studio</strong><br>
+        Made with passion by Apex Web Studio.
+    </div>
+
+    <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#work">Portfolio</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <div>© 2026 Apex Web Studio. All rights reserved.</div>
+</footer>
+
+<script>
+const loader = document.querySelector('.loader');
+window.addEventListener('load',()=>{
+    setTimeout(()=>loader.classList.add('hide'),700);
+});
+
+const menu = document.querySelector('.menu');
+const navLinks = document.querySelector('.nav-links');
+
+menu.addEventListener('click',()=>{
+    menu.classList.toggle('active');
+    navLinks.classList.toggle('active');
+});
+
+document.querySelectorAll('.nav-links a').forEach(link=>{
+    link.addEventListener('click',()=>{
+        menu.classList.remove('active');
+        navLinks.classList.remove('active');
+    });
+});
+
+const reveals = document.querySelectorAll('.reveal');
+const observer = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting){
+            entry.target.classList.add('active');
+        }
+    });
+},{threshold:.12});
+
+reveals.forEach(el=>observer.observe(el));
+
+document.querySelectorAll('.faq-item').forEach(item=>{
+    item.addEventListener('click',()=>{
+        item.classList.toggle('active');
+    });
+});
+
+const cursor = document.querySelector('.cursor');
+document.addEventListener('mousemove',e=>{
+    cursor.style.left = e.clientX + 'px';
+    cursor.style.top = e.clientY + 'px';
+});
+
+document.querySelector('form').addEventListener('submit',e=>{
+    e.preventDefault();
+    alert('Thank you. Your project request has been received.');
+});
+</script>
+
+</body>
+</html>
