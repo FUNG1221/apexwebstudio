@@ -480,22 +480,48 @@ section{
     gap:34px;
 }
 
-.contact-info{
-    padding:42px;
-    border-radius:34px;
+.apex-features{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+}
+
+.apex-feature{
+    padding:24px;
+    border-radius:26px;
     border:1px solid var(--border);
-    background:rgba(255,255,255,.08);
+    background:linear-gradient(180deg,rgba(255,255,255,.11),rgba(255,255,255,.045));
+    backdrop-filter:blur(22px);
+    transition:.35s;
 }
 
-.contact-info h3{
-    font-size:38px;
-    letter-spacing:-.05em;
-    margin-bottom:20px;
+.apex-feature:hover{
+    transform:translateY(-6px);
+    border-color:rgba(96,165,250,.55);
+    box-shadow:0 24px 70px rgba(59,130,246,.16);
 }
 
-.contact-info p{
+.apex-feature-icon{
+    width:46px;
+    height:46px;
+    display:grid;
+    place-items:center;
+    border-radius:16px;
+    background:rgba(59,130,246,.18);
+    margin-bottom:18px;
+    font-size:22px;
+}
+
+.apex-feature h3{
+    font-size:18px;
+    letter-spacing:-.03em;
+    margin-bottom:10px;
+}
+
+.apex-feature p{
     color:var(--muted);
-    line-height:1.8;
+    font-size:14px;
+    line-height:1.6;
 }
 
 form{
@@ -681,6 +707,10 @@ footer{
     form{
         grid-template-columns:1fr;
     }
+
+    .apex-features{
+    grid-template-columns:1fr;
+}
 
     .cursor{
         display:none;
@@ -912,13 +942,47 @@ footer{
 <section id="contact">
     <div class="section-head center reveal">
         <div class="kicker">Contact</div>
-        <h2>Start your premium website project.</h2>
+        <h2>Let's Build Your Next Website.</h2>
+        <p>Tell us about your business and we'll get back to you within 24 hours.</p>
     </div>
 
     <div class="contact-wrap reveal">
-        <div class="contact-info">
-            <h3>Let’s build something expensive-looking.</h3>
-            <p>Tell us about your business, your goal, your budget, and the kind of website you want. Apex Web Studio will help you create a premium online presence that customers trust.</p>
+        <div class="apex-features">
+            <div class="apex-feature">
+                <div class="apex-feature-icon"></div>
+                <h3>Premium Apple-Inspired Design</h3>
+                <p>Clean, modern, luxury layouts crafted to make your business look high-end.</p>
+            </div>
+
+            <div class="apex-feature">
+                <div class="apex-feature-icon">⚡</div>
+                <h3>Fast Turnaround</h3>
+                <p>Get a professional website built quickly without sacrificing premium quality.</p>
+            </div>
+
+            <div class="apex-feature">
+                <div class="apex-feature-icon">📱</div>
+                <h3>Mobile Responsive</h3>
+                <p>Your website will look beautiful on phones, tablets, laptops, and desktops.</p>
+            </div>
+
+            <div class="apex-feature">
+                <div class="apex-feature-icon">🔎</div>
+                <h3>SEO Optimized</h3>
+                <p>Built with clean structure, strong headings, and search-friendly sections.</p>
+            </div>
+
+            <div class="apex-feature">
+                <div class="apex-feature-icon">🎯</div>
+                <h3>Built to Convert Customers</h3>
+                <p>Every section is designed to guide visitors toward contacting your business.</p>
+            </div>
+
+            <div class="apex-feature">
+                <div class="apex-feature-icon">💬</div>
+                <h3>24-Hour Response</h3>
+                <p>Send your project details and receive a fast reply within one business day.</p>
+            </div>
         </div>
 
         <form>
