@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="Apex Web Studio designs premium websites for American businesses that want to look established, build trust, and convert more visitors into customers." />
 <title>Apex Web Studio | Premium Websites for American Businesses</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -24,6 +25,7 @@
     --purple:#8b5cf6;
     --glass:rgba(255,255,255,.08);
     --border:rgba(255,255,255,.14);
+    --border-strong:rgba(96,165,250,.5);
 }
 
 html{
@@ -52,8 +54,9 @@ body::after{
     content:"";
     position:fixed;
     inset:0;
-    background-image:linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
-    linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
+    background-image:
+        linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px);
     background-size:80px 80px;
     mask-image:linear-gradient(to bottom,black,transparent 85%);
     z-index:-1;
@@ -122,6 +125,11 @@ section{
     background:#fff;
     color:#020617!important;
     font-weight:800;
+    box-shadow:0 0 0 rgba(96,165,250,0);
+}
+
+.nav-cta:hover{
+    box-shadow:0 18px 60px rgba(96,165,250,.25);
 }
 
 .menu{
@@ -138,6 +146,68 @@ section{
     transition:.3s;
 }
 
+/* Loader */
+.loader{
+    position:fixed;
+    inset:0;
+    background:
+        radial-gradient(circle at center,rgba(59,130,246,.15),transparent 36%),
+        #020617;
+    z-index:9999;
+    display:grid;
+    place-items:center;
+    transition:.8s ease;
+}
+
+.loader.hide{
+    opacity:0;
+    pointer-events:none;
+}
+
+.loader-inner{
+    text-align:center;
+}
+
+.loader h1{
+    font-size:clamp(42px,8vw,90px);
+    letter-spacing:-.07em;
+    background:linear-gradient(135deg,#fff,#60a5fa,#a78bfa);
+    -webkit-background-clip:text;
+    color:transparent;
+    margin-bottom:16px;
+}
+
+.loader p{
+    color:#93c5fd;
+    font-weight:800;
+    letter-spacing:.18em;
+    text-transform:uppercase;
+    font-size:12px;
+}
+
+.loader-line{
+    width:190px;
+    height:2px;
+    margin:20px auto 0;
+    border-radius:999px;
+    background:rgba(255,255,255,.12);
+    overflow:hidden;
+}
+
+.loader-line span{
+    display:block;
+    height:100%;
+    width:55%;
+    background:linear-gradient(90deg,transparent,#60a5fa,#fff);
+    animation:loadMove .8s ease infinite;
+}
+
+@keyframes loadMove{
+    from{transform:translateX(-100%);}
+    to{transform:translateX(220%);}
+}
+
+/* Hero */
 .hero{
     min-height:100vh;
     padding-top:190px;
@@ -148,7 +218,7 @@ section{
 }
 
 .hero-content{
-    max-width:1100px;
+    max-width:1120px;
 }
 
 .badge{
@@ -180,7 +250,7 @@ section{
 }
 
 .hero p{
-    max-width:720px;
+    max-width:760px;
     margin:0 auto 40px;
     font-size:clamp(18px,2vw,24px);
     line-height:1.65;
@@ -213,8 +283,8 @@ section{
 }
 
 .btn:hover{
-    transform:translateY(-4px);
-    box-shadow:0 20px 60px rgba(59,130,246,.25);
+    transform:translateY(-4px) scale(1.02);
+    box-shadow:0 22px 70px rgba(59,130,246,.28);
 }
 
 .floating-card{
@@ -246,7 +316,8 @@ section{
     height:420px;
     border-radius:24px;
     background:
-        linear-gradient(135deg,rgba(59,130,246,.35),rgba(139,92,246,.22)),
+        radial-gradient(circle at 35% 30%,rgba(59,130,246,.35),transparent 32%),
+        radial-gradient(circle at 70% 65%,rgba(139,92,246,.24),transparent 34%),
         linear-gradient(180deg,#111827,#020617);
     display:grid;
     place-items:center;
@@ -258,6 +329,51 @@ section{
     letter-spacing:-.07em;
 }
 
+/* Trusted tech */
+.tech-strip{
+    padding:50px 7% 0;
+    margin-top:-70px;
+}
+
+.tech-card{
+    max-width:1180px;
+    margin:0 auto;
+    padding:24px;
+    border-radius:30px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.055);
+    backdrop-filter:blur(20px);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:24px;
+    flex-wrap:wrap;
+}
+
+.tech-card span{
+    color:#93c5fd;
+    font-size:13px;
+    font-weight:900;
+    letter-spacing:.16em;
+    text-transform:uppercase;
+}
+
+.tech-list{
+    display:flex;
+    gap:12px;
+    flex-wrap:wrap;
+}
+
+.tech-list strong{
+    padding:10px 14px;
+    border-radius:999px;
+    background:rgba(255,255,255,.075);
+    border:1px solid rgba(255,255,255,.1);
+    color:#e5e7eb;
+    font-size:13px;
+}
+
+/* Section headings */
 .section-head{
     max-width:760px;
     margin-bottom:70px;
@@ -291,85 +407,111 @@ section{
     line-height:1.7;
 }
 
-.work-grid{
+/* Portfolio Bento */
+.bento-work{
     display:grid;
-    gap:36px;
+    grid-template-columns:repeat(4,1fr);
+    grid-auto-rows:370px;
+    gap:22px;
 }
 
-.project-card{
-    display:grid;
-    grid-template-columns:1.35fr .65fr;
-    gap:28px;
-    padding:22px;
-    border-radius:36px;
-    border:1px solid var(--border);
-    background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04));
-    backdrop-filter:blur(24px);
-    box-shadow:0 30px 100px rgba(0,0,0,.28);
-    transition:.45s;
-}
-
-.project-card:hover{
-    transform:translateY(-8px);
-    border-color:rgba(96,165,250,.55);
-}
-
-.iframe-box{
-    height:430px;
-    border-radius:26px;
-    overflow:hidden;
-    background:#fff;
+.bento-item{
     position:relative;
+    overflow:hidden;
+    border-radius:36px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.06);
+    box-shadow:0 35px 120px rgba(0,0,0,.35);
+    transition:.45s ease;
+    transform-style:preserve-3d;
 }
 
-.iframe-box iframe{
-    width:1440px;
-    height:900px;
-    border:0;
-    transform:scale(.52);
-    transform-origin:top left;
+.bento-large{
+    grid-column:span 4;
+    grid-row:span 2;
 }
 
-.project-info{
+.bento-item img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    object-position:center center;
+    display:block;
+    filter:brightness(.62) saturate(.9);
+    transition:.55s ease;
+}
+
+.bento-item:hover{
+    transform:translateY(-10px) scale(1.01);
+    border-color:rgba(96,165,250,.58);
+    box-shadow:0 45px 150px rgba(59,130,246,.18),0 35px 120px rgba(0,0,0,.45);
+}
+
+.bento-item:hover img{
+    filter:brightness(.82) saturate(1.05);
+    transform:scale(1.07);
+}
+
+.bento-overlay{
+    position:absolute;
+    inset:0;
+    padding:34px;
     display:flex;
     flex-direction:column;
-    justify-content:center;
-    padding:20px;
+    justify-content:flex-end;
+    background:linear-gradient(to top,rgba(2,6,23,.96),rgba(2,6,23,.22),transparent);
+    z-index:2;
 }
 
-.tag{
-    display:inline-block;
+.bento-overlay span{
     width:max-content;
-    padding:8px 12px;
+    padding:8px 13px;
     border-radius:999px;
-    background:rgba(59,130,246,.16);
+    background:rgba(96,165,250,.22);
     color:#bfdbfe;
-    font-size:13px;
-    font-weight:800;
-    margin-bottom:20px;
-}
-
-.project-info h3{
-    font-size:36px;
-    letter-spacing:-.04em;
-    margin-bottom:16px;
-}
-
-.project-info p{
-    color:var(--muted);
-    line-height:1.7;
-    margin-bottom:28px;
-}
-
-.live-link{
-    width:max-content;
-    padding:13px 18px;
-    border-radius:999px;
-    background:white;
-    color:#020617;
     font-weight:900;
+    font-size:13px;
+    margin-bottom:14px;
 }
 
+.bento-overlay h3{
+    font-size:clamp(30px,4vw,60px);
+    line-height:1;
+    letter-spacing:-.055em;
+    margin-bottom:10px;
+}
+
+.bento-overlay p{
+    color:#cbd5e1;
+    font-size:18px;
+    max-width:560px;
+    line-height:1.6;
+    margin-bottom:18px;
+}
+
+.bento-overlay strong{
+    font-size:15px;
+    transition:.3s;
+}
+
+.bento-item:hover .bento-overlay strong{
+    color:#93c5fd;
+    letter-spacing:.02em;
+}
+
+.bento-item img[alt="IronPulse Fitness Club"]{
+    object-position:left center;
+}
+
+.bento-item img[alt="Pro Plumbing USA"]{
+    object-position:center center;
+}
+
+.bento-item img[alt="BrightSmile Dental Clinic"]{
+    object-position:center center;
+}
+
+/* Results */
 .stats{
     display:grid;
     grid-template-columns:repeat(4,1fr);
@@ -380,7 +522,13 @@ section{
     padding:34px;
     border-radius:28px;
     border:1px solid var(--border);
-    background:rgba(255,255,255,.07);
+    background:linear-gradient(180deg,rgba(255,255,255,.09),rgba(255,255,255,.045));
+    transition:.35s;
+}
+
+.stat:hover{
+    transform:translateY(-6px);
+    border-color:rgba(96,165,250,.35);
 }
 
 .stat h3{
@@ -393,7 +541,8 @@ section{
     color:var(--muted);
 }
 
-.services-grid,.choose-grid,.testimonials-grid,.faq-grid{
+/* Cards / Services */
+.services-grid,.choose-grid,.testimonials-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:22px;
@@ -411,6 +560,19 @@ section{
 .card:hover{
     transform:translateY(-6px);
     background:rgba(255,255,255,.11);
+    border-color:rgba(96,165,250,.28);
+}
+
+.service-icon{
+    width:50px;
+    height:50px;
+    border-radius:18px;
+    display:grid;
+    place-items:center;
+    font-size:24px;
+    margin-bottom:20px;
+    background:rgba(96,165,250,.16);
+    border:1px solid rgba(255,255,255,.1);
 }
 
 .card h3{
@@ -424,6 +586,7 @@ section{
     line-height:1.7;
 }
 
+/* Process */
 .process{
     display:grid;
     grid-template-columns:repeat(6,1fr);
@@ -436,6 +599,12 @@ section{
     background:linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,.04));
     border:1px solid var(--border);
     text-align:center;
+    transition:.35s;
+}
+
+.step:hover{
+    transform:translateY(-6px);
+    border-color:rgba(96,165,250,.4);
 }
 
 .step span{
@@ -445,8 +614,23 @@ section{
     margin-bottom:14px;
 }
 
+/* Testimonials */
 .testimonial{
-    min-height:230px;
+    min-height:245px;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+.review-badge{
+    width:max-content;
+    padding:7px 11px;
+    border-radius:999px;
+    background:rgba(96,165,250,.16);
+    color:#bfdbfe;
+    font-size:12px;
+    font-weight:900;
+    margin-bottom:20px;
 }
 
 .testimonial p{
@@ -457,23 +641,76 @@ section{
     font-weight:900;
 }
 
+/* FAQ Accordion */
+.faq-list{
+    max-width:980px;
+    margin:0 auto;
+    display:grid;
+    gap:14px;
+}
+
 .faq-item{
     cursor:pointer;
+    padding:0;
+    overflow:hidden;
+}
+
+.faq-question{
+    width:100%;
+    background:transparent;
+    border:0;
+    color:var(--white);
+    text-align:left;
+    padding:28px 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    cursor:pointer;
+    font-family:inherit;
+}
+
+.faq-question h3{
+    font-size:20px;
+    letter-spacing:-.03em;
+}
+
+.faq-icon{
+    width:34px;
+    height:34px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    flex:0 0 auto;
+    background:rgba(96,165,250,.16);
+    color:#bfdbfe;
+    font-weight:900;
+    transition:.35s;
+}
+
+.faq-item.active .faq-icon{
+    transform:rotate(180deg);
+    background:#fff;
+    color:#020617;
 }
 
 .faq-answer{
     max-height:0;
     overflow:hidden;
-    transition:.35s;
+    transition:max-height .4s ease, opacity .35s ease, padding .35s ease;
+    opacity:0;
     color:var(--muted);
     line-height:1.7;
+    padding:0 30px;
 }
 
 .faq-item.active .faq-answer{
     max-height:180px;
-    margin-top:16px;
+    opacity:1;
+    padding:0 30px 28px;
 }
 
+/* Contact */
 .contact-wrap{
     display:grid;
     grid-template-columns:.8fr 1.2fr;
@@ -519,6 +756,11 @@ input,textarea,select{
     font-family:inherit;
 }
 
+input:focus,textarea:focus,select:focus{
+    border-color:rgba(96,165,250,.55);
+    box-shadow:0 0 0 4px rgba(96,165,250,.08);
+}
+
 textarea{
     grid-column:1/-1;
     min-height:150px;
@@ -535,56 +777,93 @@ form button{
     background:white;
     color:#020617;
     font-size:16px;
+    transition:.35s;
 }
 
+form button:hover{
+    transform:translateY(-4px) scale(1.015);
+    box-shadow:0 22px 75px rgba(96,165,250,.35);
+}
+
+.form-message{
+    grid-column:1/-1;
+    display:none;
+    padding:14px 16px;
+    border-radius:18px;
+    background:rgba(34,197,94,.12);
+    border:1px solid rgba(34,197,94,.25);
+    color:#bbf7d0;
+    font-weight:700;
+}
+
+/* Footer */
 footer{
-    padding:60px 7%;
-    border-top:1px solid var(--border);
-    display:flex;
-    justify-content:space-between;
-    gap:20px;
-    flex-wrap:wrap;
+    padding:0 7% 44px;
     color:var(--muted);
 }
 
+.footer-card{
+    max-width:1180px;
+    margin:0 auto;
+    padding:46px;
+    border-top:1px solid var(--border);
+    border-radius:34px 34px 0 0;
+    background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.02));
+    display:grid;
+    grid-template-columns:1.1fr .8fr .9fr;
+    gap:34px;
+}
+
+.footer-brand strong{
+    display:block;
+    color:#fff;
+    font-size:24px;
+    letter-spacing:-.04em;
+    margin-bottom:10px;
+}
+
+.footer-col h4{
+    color:#fff;
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:.16em;
+    margin-bottom:18px;
+}
+
 .footer-links{
+    display:grid;
+    gap:10px;
+}
+
+.footer-links a,.footer-contact a{
+    color:#cbd5e1;
+    transition:.3s;
+}
+
+.footer-links a:hover,.footer-contact a:hover{
+    color:#60a5fa;
+}
+
+.footer-bottom{
+    max-width:1180px;
+    margin:0 auto;
+    padding-top:22px;
     display:flex;
+    justify-content:space-between;
     gap:18px;
     flex-wrap:wrap;
 }
 
+/* Reveal animations */
 .reveal{
     opacity:0;
-    transform:translateY(35px);
-    transition:1s;
+    transform:translateY(35px) scale(.98);
+    transition:opacity .9s ease, transform .9s ease;
 }
 
 .reveal.active{
     opacity:1;
-    transform:translateY(0);
-}
-
-.loader{
-    position:fixed;
-    inset:0;
-    background:#020617;
-    z-index:9999;
-    display:grid;
-    place-items:center;
-    transition:.8s;
-}
-
-.loader.hide{
-    opacity:0;
-    pointer-events:none;
-}
-
-.loader h1{
-    font-size:clamp(42px,8vw,90px);
-    letter-spacing:-.07em;
-    background:linear-gradient(135deg,#fff,#60a5fa,#a78bfa);
-    -webkit-background-clip:text;
-    color:transparent;
+    transform:translateY(0) scale(1);
 }
 
 .cursor{
@@ -598,17 +877,67 @@ footer{
     transform:translate(-50%,-50%);
 }
 
+/* Back to top */
+#backToTop{
+    position:fixed;
+    right:28px;
+    bottom:28px;
+    width:58px;
+    height:58px;
+    border:0;
+    border-radius:50%;
+    background:#fff;
+    color:#020617;
+    font-size:26px;
+    cursor:pointer;
+    display:grid;
+    place-items:center;
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(10px) scale(.95);
+    transition:.35s;
+    z-index:998;
+    box-shadow:0 18px 50px rgba(0,0,0,.35);
+}
+
+#backToTop.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0) scale(1);
+}
+
+#backToTop:hover{
+    transform:translateY(-5px) scale(1.04);
+    box-shadow:0 22px 70px rgba(96,165,250,.28);
+}
+
 @media(max-width:1050px){
-    .project-card,.contact-wrap{
+    .contact-wrap{
         grid-template-columns:1fr;
     }
 
-    .stats,.services-grid,.choose-grid,.testimonials-grid,.faq-grid{
+    .stats,.services-grid,.choose-grid,.testimonials-grid{
         grid-template-columns:repeat(2,1fr);
     }
 
     .process{
         grid-template-columns:repeat(3,1fr);
+    }
+
+    .footer-card{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:900px){
+    .bento-work{
+        grid-template-columns:1fr;
+        grid-auto-rows:390px;
+    }
+
+    .bento-large{
+        grid-column:span 1;
+        grid-row:span 1;
     }
 }
 
@@ -662,122 +991,33 @@ footer{
         display:none;
     }
 
-    .stats,.services-grid,.choose-grid,.testimonials-grid,.faq-grid,.process{
+    .tech-strip{
+        margin-top:-50px;
+    }
+
+    .stats,.services-grid,.choose-grid,.testimonials-grid,.process{
         grid-template-columns:1fr;
     }
 
-    .iframe-box{
-        height:320px;
+    .bento-overlay{
+        padding:26px;
     }
 
-    .iframe-box iframe{
-        transform:scale(.36);
-    }
-
-    .project-info h3{
-        font-size:30px;
+    .bento-overlay h3{
+        font-size:38px;
     }
 
     form{
         grid-template-columns:1fr;
     }
 
+    .footer-card{
+        padding:34px 24px;
+    }
+
     .cursor{
         display:none;
     }
-}
-    .bento-work{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    grid-auto-rows:330px;
-    gap:22px;
-}
-
-.bento-item{
-    position:relative;
-    overflow:hidden;
-    border-radius:36px;
-    border:1px solid rgba(255,255,255,.14);
-    background:rgba(255,255,255,.06);
-    box-shadow:0 35px 120px rgba(0,0,0,.35);
-    transition:.45s;
-}
-
-.bento-large{
-    grid-column:span 4;
-    grid-row:span 2;
-}
-
-.bento-item img{
-    width:100%;
-    height:100%;
-    object-fit:cover;
-    display:block;
-    filter:brightness(.62) saturate(.9);
-    transition:.5s;
-}
-
-.bento-item:hover{
-    transform:translateY(-8px);
-    border-color:rgba(96,165,250,.55);
-}
-
-.bento-item:hover img{
-    filter:brightness(.78) saturate(1);
-    transform:scale(1.06);
-}
-
-.bento-overlay{
-    position:absolute;
-    inset:0;
-    padding:34px;
-    display:flex;
-    flex-direction:column;
-    justify-content:flex-end;
-    background:linear-gradient(to top,rgba(2,6,23,.95),rgba(2,6,23,.18),transparent);
-}
-
-.bento-overlay span{
-    width:max-content;
-    padding:8px 13px;
-    border-radius:999px;
-    background:rgba(96,165,250,.22);
-    color:#bfdbfe;
-    font-weight:900;
-    font-size:13px;
-    margin-bottom:14px;
-}
-
-.bento-overlay h3{
-    font-size:clamp(28px,4vw,60px);
-    line-height:1;
-    letter-spacing:-.055em;
-    margin-bottom:10px;
-}
-
-.bento-overlay p{
-    color:#cbd5e1;
-    font-size:18px;
-    max-width:520px;
-    line-height:1.6;
-    margin-bottom:18px;
-}
-
-.bento-overlay strong{
-    font-size:15px;
-}
-
-@media(max-width:900px){
-    .bento-work{
-        grid-template-columns:1fr;
-        grid-auto-rows:360px;
-    }
-
-    .bento-large{
-        grid-column:span 1;
-        grid-row:span 1;
-    }
-
 }
 </style>
 </head>
@@ -785,7 +1025,11 @@ footer{
 <body>
 
 <div class="loader">
-    <h1>Apex Web Studio</h1>
+    <div class="loader-inner">
+        <h1>Apex Web Studio</h1>
+        <p>Loading...</p>
+        <div class="loader-line"><span></span></div>
+    </div>
 </div>
 
 <div class="cursor"></div>
@@ -812,7 +1056,8 @@ footer{
     <div class="hero-content reveal">
         <div class="badge">Premium Websites • American Business Style • Built to Convert</div>
         <h1>Build Websites That <span class="gradient-text">Sell Before You Even Speak.</span></h1>
-        <p>Premium websites crafted for American businesses that want to dominate their market, look expensive, and convert visitors into real customers.</p>
+        <p>We design premium websites that help American businesses look established, build trust instantly, and convert more visitors into paying customers.</p>
+
         <div class="buttons">
             <a href="#work" class="btn btn-primary">View Our Work</a>
             <a href="#contact" class="btn btn-secondary">Start Your Project</a>
@@ -829,6 +1074,21 @@ footer{
     </div>
 </section>
 
+<div class="tech-strip reveal">
+    <div class="tech-card">
+        <span>Built With</span>
+        <div class="tech-list">
+            <strong>HTML5</strong>
+            <strong>CSS3</strong>
+            <strong>JavaScript</strong>
+            <strong>GitHub</strong>
+            <strong>Vercel</strong>
+            <strong>Responsive</strong>
+            <strong>SEO Ready</strong>
+        </div>
+    </div>
+</div>
+
 <section id="work">
     <div class="section-head center reveal">
         <div class="kicker">Selected Work</div>
@@ -838,49 +1098,49 @@ footer{
 
     <div class="bento-work reveal">
 
-        <a class="bento-item bento-large" href="https://brightsmiledental-umber.vercel.app" target="_blank">
+        <a class="bento-item bento-large" href="https://brightsmiledental-umber.vercel.app" target="_blank" rel="noopener">
             <img src="dental.jpg" alt="BrightSmile Dental Clinic">
             <div class="bento-overlay">
                 <span>Dental Clinic</span>
                 <h3>BrightSmile Dental Clinic</h3>
                 <p>Clean, trustworthy, appointment-focused dental website.</p>
-                <strong>View Live Website →</strong>
+                <strong>Visit Website →</strong>
             </div>
         </a>
 
-        <a class="bento-item" href="https://libertylegalgroup.vercel.app/" target="_blank">
+        <a class="bento-item" href="https://libertylegalgroup.vercel.app/" target="_blank" rel="noopener">
             <img src="law.jpg" alt="Liberty Legal Group">
             <div class="bento-overlay">
                 <span>Law Firm</span>
                 <h3>Liberty Legal Group</h3>
-                <strong>View Live →</strong>
+                <strong>Visit Website →</strong>
             </div>
         </a>
 
-        <a class="bento-item" href="https://prime-realty-group-ftzo.vercel.app/" target="_blank">
+        <a class="bento-item" href="https://prime-realty-group-ftzo.vercel.app/" target="_blank" rel="noopener">
             <img src="./realestate.jpg.png" alt="Prime Realty Group">
             <div class="bento-overlay">
                 <span>Real Estate</span>
                 <h3>Prime Realty Group</h3>
-                <strong>View Live →</strong>
+                <strong>Visit Website →</strong>
             </div>
         </a>
 
-        <a class="bento-item" href="https://pro-plumbing-usa.vercel.app" target="_blank">
+        <a class="bento-item" href="https://pro-plumbing-usa.vercel.app" target="_blank" rel="noopener">
             <img src="plumbing.jpg" alt="Pro Plumbing USA">
             <div class="bento-overlay">
                 <span>Plumbing</span>
                 <h3>Pro Plumbing USA</h3>
-                <strong>View Live →</strong>
+                <strong>Visit Website →</strong>
             </div>
         </a>
 
-        <a class="bento-item" href="https://ironpulse-fitness-club-rho.vercel.app" target="_blank">
+        <a class="bento-item" href="https://ironpulse-fitness-club-rho.vercel.app" target="_blank" rel="noopener">
             <img src="gym.jpg" alt="IronPulse Fitness Club">
             <div class="bento-overlay">
                 <span>Fitness Club</span>
                 <h3>IronPulse Fitness Club</h3>
-                <strong>View Live →</strong>
+                <strong>Visit Website →</strong>
             </div>
         </a>
 
@@ -895,10 +1155,10 @@ footer{
     </div>
 
     <div class="stats reveal">
-        <div class="stat"><h3>50+</h3><p>Websites</p></div>
-        <div class="stat"><h3>100%</h3><p>Responsive</p></div>
-        <div class="stat"><h3>95+</h3><p>PageSpeed Goal</p></div>
-        <div class="stat"><h3>24h</h3><p>Average Response</p></div>
+        <div class="stat"><h3><span class="counter" data-target="5">0</span></h3><p>Projects Completed</p></div>
+        <div class="stat"><h3><span class="counter" data-target="100">0</span>%</h3><p>Responsive Design</p></div>
+        <div class="stat"><h3><span class="counter" data-target="5">0</span></h3><p>Industries Served</p></div>
+        <div class="stat"><h3><span class="counter" data-target="24">0</span>h</h3><p>Average Response Time</p></div>
     </div>
 </section>
 
@@ -909,12 +1169,12 @@ footer{
     </div>
 
     <div class="services-grid reveal">
-        <div class="card"><h3>Premium Business Websites</h3><p>High-end websites for local American businesses that need trust, clarity, and strong first impressions.</p></div>
-        <div class="card"><h3>Landing Pages</h3><p>Conversion-focused pages built for campaigns, leads, services, and paid traffic.</p></div>
-        <div class="card"><h3>Website Redesign</h3><p>Turn outdated websites into modern premium digital experiences.</p></div>
-        <div class="card"><h3>UI/UX Design</h3><p>Clean layouts, smart structure, strong spacing, and beautiful user flows.</p></div>
-        <div class="card"><h3>SEO Optimization</h3><p>Clean structure, optimized sections, fast loading, and search-friendly content.</p></div>
-        <div class="card"><h3>Mobile Optimization</h3><p>Every website is designed to look excellent on phones, tablets, and desktops.</p></div>
+        <div class="card"><div class="service-icon">🖥</div><h3>Premium Business Websites</h3><p>High-end websites for local American businesses that need trust, clarity, and strong first impressions.</p></div>
+        <div class="card"><div class="service-icon">🚀</div><h3>Landing Pages</h3><p>Conversion-focused pages built for campaigns, leads, services, and paid traffic.</p></div>
+        <div class="card"><div class="service-icon">✨</div><h3>Website Redesign</h3><p>Turn outdated websites into modern premium digital experiences.</p></div>
+        <div class="card"><div class="service-icon">🎨</div><h3>UI/UX Design</h3><p>Clean layouts, smart structure, strong spacing, and beautiful user flows.</p></div>
+        <div class="card"><div class="service-icon">🔍</div><h3>SEO Optimization</h3><p>Clean structure, optimized sections, fast loading, and search-friendly content.</p></div>
+        <div class="card"><div class="service-icon">📱</div><h3>Mobile Optimization</h3><p>Every website is designed to look excellent on phones, tablets, and desktops.</p></div>
     </div>
 </section>
 
@@ -952,19 +1212,18 @@ footer{
 
 <section>
     <div class="section-head center reveal">
-        <div class="kicker">Testimonials</div>
-        <h2>What clients say.</h2>
+        <div class="kicker">Sample Client Feedback</div>
+        <h2>Demo reviews until real client feedback is available.</h2>
+        <p>These testimonials are placeholders and can be replaced with real reviews after your first client projects.</p>
     </div>
 
     <div class="testimonials-grid reveal">
-        <div class="card testimonial"><p>“The website instantly made our business look more professional.”</p><div class="client">Michael R.</div></div>
-        <div class="card testimonial"><p>“Clean, fast, premium, and exactly the style we wanted.”</p><div class="client">Sarah J.</div></div>
-        <div class="card testimonial"><p>“Our old site looked outdated. This redesign changed everything.”</p><div class="client">David L.</div></div>
-        <div class="card testimonial"><p>“The mobile version looks incredible.”</p><div class="client">Amanda K.</div></div>
-        <div class="card testimonial"><p>“Professional design with strong attention to detail.”</p><div class="client">James W.</div></div>
-        <div class="card testimonial"><p>“It feels like a real premium brand now.”</p><div class="client">Olivia M.</div></div>
-        <div class="card testimonial"><p>“Beautiful visuals and very smooth user experience.”</p><div class="client">Robert H.</div></div>
-        <div class="card testimonial"><p>“Apex delivered exactly what we needed to look serious online.”</p><div class="client">Emily C.</div></div>
+        <div class="card testimonial"><div><div class="review-badge">Sample Review</div><p>“The website instantly made our business look more professional.”</p></div><div class="client">Sample Client</div></div>
+        <div class="card testimonial"><div><div class="review-badge">Sample Review</div><p>“Clean, fast, premium, and exactly the style we wanted.”</p></div><div class="client">Sample Client</div></div>
+        <div class="card testimonial"><div><div class="review-badge">Sample Review</div><p>“Our old site looked outdated. This redesign changed everything.”</p></div><div class="client">Sample Client</div></div>
+        <div class="card testimonial"><div><div class="review-badge">Sample Review</div><p>“The mobile version looks incredible.”</p></div><div class="client">Sample Client</div></div>
+        <div class="card testimonial"><div><div class="review-badge">Sample Review</div><p>“Professional design with strong attention to detail.”</p></div><div class="client">Sample Client</div></div>
+        <div class="card testimonial"><div><div class="review-badge">Sample Review</div><p>“It feels like a real premium brand now.”</p></div><div class="client">Sample Client</div></div>
     </div>
 </section>
 
@@ -974,17 +1233,56 @@ footer{
         <h2>Questions before starting?</h2>
     </div>
 
-    <div class="faq-grid reveal">
-        <div class="card faq-item"><h3>Do you build websites for American businesses?</h3><div class="faq-answer">Yes. Apex Web Studio focuses on modern websites designed for American service businesses.</div></div>
-        <div class="card faq-item"><h3>Are your websites mobile friendly?</h3><div class="faq-answer">Yes. Every website is fully responsive and optimized for mobile devices.</div></div>
-        <div class="card faq-item"><h3>Can you redesign my current website?</h3><div class="faq-answer">Yes. We can turn outdated websites into premium modern experiences.</div></div>
-        <div class="card faq-item"><h3>Do you include SEO?</h3><div class="faq-answer">Yes. We include clean structure, headings, meta tags, and SEO-ready layout.</div></div>
-        <div class="card faq-item"><h3>Can I view the website before launch?</h3><div class="faq-answer">Yes. You can review the website before it goes live.</div></div>
-        <div class="card faq-item"><h3>Do you make landing pages?</h3><div class="faq-answer">Yes. We create high-converting landing pages for services, ads, and campaigns.</div></div>
-        <div class="card faq-item"><h3>Can you make different styles?</h3><div class="faq-answer">Yes. Each website can have a unique style based on the industry and brand.</div></div>
-        <div class="card faq-item"><h3>Do you use templates?</h3><div class="faq-answer">No. The goal is to create a handcrafted premium look.</div></div>
-        <div class="card faq-item"><h3>Can you add contact forms?</h3><div class="faq-answer">Yes. Contact forms, CTA buttons, maps, and social links can be included.</div></div>
-        <div class="card faq-item"><h3>How do I start?</h3><div class="faq-answer">Send your business details, website goal, and preferred style through the contact form.</div></div>
+    <div class="faq-list reveal">
+        <div class="card faq-item">
+            <button class="faq-question" type="button"><h3>Do you build websites for American businesses?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes. Apex Web Studio focuses on modern websites designed for American service businesses.</div>
+        </div>
+
+        <div class="card faq-item">
+            <button class="faq-question" type="button"><h3>Are your websites mobile friendly?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes. Every website is fully responsive and optimized for phones, tablets, and desktops.</div>
+        </div>
+
+        <div class="card faq-item">
+            <button class="faq-question" type="button"><h3>Can you redesign my current website?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes. We can turn outdated websites into modern premium digital experiences.</div>
+        </div>
+
+        <div class="card faq-item">
+            <button class="faq-question" type="button"><h3>Do you include SEO?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes. We include clean structure, headings, meta tags, fast loading, and SEO-ready layout.</div>
+        </div>
+
+        <div class="card faq-item">
+            <button class="faq-question" type="button"><h3>Can I view the website before launch?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes. You can review the website before it goes live.</div>
+        </div>
+
+        <div class="card faq-item">
+            <button class="faq-question" type="button"><h3>Do you make landing pages?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes. We create high-converting landing pages for services, ads, and campaigns.</div>
+        </div>
+
+        <div class="card faq-item">
+            <button class="faq-question" type="button"><h3>Can you make different styles?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes. Each website can have a unique style based on the industry and brand.</div>
+        </div>
+
+        <div class="card faq-item">
+            <button class="faq-question" type="button"><h3>Do you use templates?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer">No. The goal is to create a handcrafted premium look for every industry.</div>
+        </div>
+
+        <div class="card faq-item">
+            <button class="faq-question" type="button"><h3>Can you add contact forms?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer">Yes. Contact forms, CTA buttons, maps, and social links can be included.</div>
+        </div>
+
+        <div class="card faq-item">
+            <button class="faq-question" type="button"><h3>How do I start?</h3><span class="faq-icon">+</span></button>
+            <div class="faq-answer">Send your business details, website goal, and preferred style through the contact form.</div>
+        </div>
     </div>
 </section>
 
@@ -1000,39 +1298,68 @@ footer{
             <p>Tell us about your business, your goal, your budget, and the kind of website you want. Apex Web Studio will help you create a premium online presence that customers trust.</p>
         </div>
 
-        <form>
-            <input type="text" placeholder="Name" required>
-            <input type="text" placeholder="Business">
-            <input type="email" placeholder="Email" required>
-            <input type="tel" placeholder="Phone">
-            <input type="url" placeholder="Current Website">
-            <select>
-                <option>Budget</option>
+        <form id="projectForm" action="https://formsubmit.co/ajax/your-email@example.com" method="POST">
+            <input type="hidden" name="_subject" value="New Apex Web Studio Project Request">
+            <input type="hidden" name="_template" value="table">
+            <input type="text" name="Name" placeholder="Name" required>
+            <input type="text" name="Business" placeholder="Business">
+            <input type="email" name="Email" placeholder="Email" required>
+            <input type="tel" name="Phone" placeholder="Phone">
+            <input type="url" name="Website" placeholder="Current Website">
+            <select name="Budget">
+                <option value="">Budget</option>
                 <option>$1,000 - $3,000</option>
                 <option>$3,000 - $5,000</option>
                 <option>$5,000 - $10,000</option>
                 <option>$10,000+</option>
             </select>
-            <textarea placeholder="Message"></textarea>
-            <button type="submit">Send Project Request</button>
+            <textarea name="Message" placeholder="Message"></textarea>
+            <button type="submit">✈ Send Project Request</button>
+            <div class="form-message" id="formMessage"></div>
         </form>
     </div>
 </section>
 
 <footer>
-    <div>
-        <strong>Apex Web Studio</strong><br>
-        Made with passion by Apex Web Studio.
+    <div class="footer-card">
+        <div class="footer-brand">
+            <strong>Apex Web Studio</strong>
+            <p>Premium Websites for American Businesses.</p>
+        </div>
+
+        <div class="footer-col">
+            <h4>Navigation</h4>
+            <div class="footer-links">
+                <a href="#home">Home</a>
+                <a href="#work">Work</a>
+                <a href="#services">Services</a>
+                <a href="#about">About</a>
+                <a href="#faq">FAQ</a>
+            </div>
+        </div>
+
+        <div class="footer-col footer-contact">
+            <h4>Contact</h4>
+            <div class="footer-links">
+                <a href="mailto:hello@apexwebstudio.com">hello@apexwebstudio.com</a>
+                <a href="#" aria-label="GitHub">GitHub</a>
+                <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+        </div>
     </div>
 
-
-    <div>© 2026 Apex Web Studio. All rights reserved.</div>
+    <div class="footer-bottom">
+        <span>© 2026 Apex Web Studio. All rights reserved.</span>
+        <span>Made with passion by Apex Web Studio.</span>
+    </div>
 </footer>
+
+<button id="backToTop" aria-label="Back to top">↑</button>
 
 <script>
 const loader = document.querySelector('.loader');
 window.addEventListener('load',()=>{
-    setTimeout(()=>loader.classList.add('hide'),700);
+    setTimeout(()=>loader.classList.add('hide'),800);
 });
 
 const menu = document.querySelector('.menu');
@@ -1061,9 +1388,39 @@ const observer = new IntersectionObserver(entries=>{
 
 reveals.forEach(el=>observer.observe(el));
 
-document.querySelectorAll('.faq-item').forEach(item=>{
-    item.addEventListener('click',()=>{
+let counted = false;
+const counterObserver = new IntersectionObserver(entries=>{
+    entries.forEach(entry=>{
+        if(entry.isIntersecting && !counted){
+            counted = true;
+            document.querySelectorAll('.counter').forEach(counter=>{
+                const target = Number(counter.dataset.target);
+                let current = 0;
+                const increment = Math.max(1, Math.ceil(target / 38));
+                const run = () => {
+                    current += increment;
+                    if(current >= target){
+                        counter.textContent = target;
+                    }else{
+                        counter.textContent = current;
+                        requestAnimationFrame(run);
+                    }
+                };
+                run();
+            });
+        }
+    });
+},{threshold:.35});
+
+const stats = document.querySelector('.stats');
+if(stats) counterObserver.observe(stats);
+
+document.querySelectorAll('.faq-question').forEach(button=>{
+    button.addEventListener('click',()=>{
+        const item = button.closest('.faq-item');
+        const icon = item.querySelector('.faq-icon');
         item.classList.toggle('active');
+        icon.textContent = item.classList.contains('active') ? '−' : '+';
     });
 });
 
@@ -1073,9 +1430,44 @@ document.addEventListener('mousemove',e=>{
     cursor.style.top = e.clientY + 'px';
 });
 
-document.querySelector('form').addEventListener('submit',e=>{
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll',()=>{
+    if(window.scrollY > 500){
+        backToTop.classList.add('show');
+    }else{
+        backToTop.classList.remove('show');
+    }
+});
+
+backToTop.addEventListener('click',()=>{
+    window.scrollTo({top:0, behavior:'smooth'});
+});
+
+const form = document.getElementById('projectForm');
+const formMessage = document.getElementById('formMessage');
+
+form.addEventListener('submit',async e=>{
     e.preventDefault();
-    alert('Thank you. Your project request has been received.');
+
+    formMessage.style.display = 'block';
+    formMessage.textContent = 'Sending your project request...';
+
+    try{
+        const response = await fetch(form.action,{
+            method:'POST',
+            body:new FormData(form),
+            headers:{'Accept':'application/json'}
+        });
+
+        if(response.ok){
+            form.reset();
+            formMessage.textContent = 'Thank you! Your project request has been sent successfully.';
+        }else{
+            formMessage.textContent = 'Please replace your-email@example.com with your real email before using this form.';
+        }
+    }catch(error){
+        formMessage.textContent = 'Please replace your-email@example.com with your real email before using this form.';
+    }
 });
 </script>
 
