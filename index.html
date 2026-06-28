@@ -1669,6 +1669,42 @@ body.modal-open{
     }
 }
 
+
+/* ========================= */
+/* Pricing Mobile Title Fix */
+/* ========================= */
+@media(max-width:768px){
+    .pricing-card h3{
+        white-space:nowrap;
+        font-size:clamp(24px,6.6vw,28px);
+        line-height:1.05;
+    }
+
+    .pricing-card.popular h3{
+        padding-right:0;
+        margin-top:0;
+    }
+
+    .pricing-card.popular .popular-badge{
+        top:18px;
+        right:18px;
+        left:auto;
+        font-size:9px;
+        padding:5px 9px;
+    }
+}
+
+@media(max-width:380px){
+    .pricing-card h3{
+        font-size:24px;
+    }
+
+    .pricing-card.popular .popular-badge{
+        font-size:8px;
+        padding:5px 8px;
+    }
+}
+
 </style>
 </head>
 
