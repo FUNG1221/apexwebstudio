@@ -2012,6 +2012,64 @@ body.modal-open{
     }
 }
 
+
+
+/* ========================= */
+/* Mobile Navbar Safe Fit Fix */
+/* ========================= */
+@media(max-width:768px){
+    .navbar{
+        left:14px;
+        right:14px;
+        width:auto;
+        max-width:none;
+        transform:none;
+        padding:0 18px;
+        min-height:64px;
+        border-radius:28px;
+        overflow:visible;
+    }
+
+    .logo{
+        font-size:17px;
+        line-height:1;
+        white-space:nowrap;
+        flex-shrink:0;
+        max-width:72%;
+    }
+
+    .menu{
+        flex-shrink:0;
+        margin-left:auto;
+    }
+
+    .nav-links{
+        top:78px;
+        left:0;
+        right:0;
+        width:100%;
+    }
+}
+
+@media(max-width:390px){
+    .navbar{
+        left:12px;
+        right:12px;
+        padding:0 16px;
+        min-height:62px;
+        border-radius:26px;
+    }
+
+    .logo{
+        font-size:16px;
+        max-width:70%;
+    }
+
+    .menu span{
+        width:23px;
+    }
+}
+
 </style>
 </head>
 
