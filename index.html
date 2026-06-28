@@ -2512,6 +2512,218 @@ body.modal-open{
     }
 }
 
+
+
+/* ========================= */
+/* Process + Testimonials Mobile One-Screen Compact */
+/* ========================= */
+@media(max-width:768px){
+    #process{
+        padding-top:54px;
+        padding-bottom:56px;
+    }
+
+    #process .section-head{
+        max-width:100%;
+        margin-bottom:18px;
+    }
+
+    #process .kicker{
+        margin-bottom:10px;
+        font-size:11px;
+        letter-spacing:.22em;
+    }
+
+    #process .section-head h2{
+        font-size:clamp(30px,8.4vw,40px);
+        line-height:.98;
+        letter-spacing:-.06em;
+        max-width:360px;
+        margin:0 auto;
+    }
+
+    #process .process{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
+        max-width:390px;
+        margin:0 auto;
+    }
+
+    #process .step{
+        min-height:98px;
+        padding:16px 12px 14px;
+        border-radius:22px;
+        display:flex;
+        flex-direction:column;
+        align-items:center;
+        justify-content:center;
+    }
+
+    #process .step span{
+        font-size:16px;
+        margin-bottom:6px;
+    }
+
+    #process .step h3{
+        font-size:16px;
+        line-height:1.08;
+        letter-spacing:-.03em;
+    }
+
+    #testimonials-preview{
+        padding-top:56px;
+        padding-bottom:58px;
+    }
+
+    #testimonials-preview .section-head{
+        max-width:100%;
+        margin-bottom:18px;
+    }
+
+    #testimonials-preview .kicker{
+        margin-bottom:10px;
+        font-size:11px;
+        letter-spacing:.22em;
+    }
+
+    #testimonials-preview .section-head h2{
+        font-size:clamp(30px,8.5vw,40px);
+        line-height:.98;
+        letter-spacing:-.06em;
+        max-width:340px;
+        margin-left:auto;
+        margin-right:auto;
+        margin-bottom:10px;
+    }
+
+    #testimonials-preview .section-head p{
+        font-size:14px;
+        line-height:1.45;
+        max-width:360px;
+        margin:0 auto;
+    }
+
+    #testimonials-preview .testimonials-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
+        max-width:390px;
+        margin:0 auto;
+    }
+
+    #testimonials-preview .testimonial{
+        padding:14px 13px 14px;
+        border-radius:22px;
+        min-height:150px;
+        display:flex;
+        flex-direction:column;
+    }
+
+    #testimonials-preview .sample-badge{
+        font-size:11px;
+        padding:7px 12px;
+        margin-bottom:12px;
+        align-self:flex-start;
+    }
+
+    #testimonials-preview .testimonial p{
+        font-size:13px;
+        line-height:1.42;
+        margin-bottom:12px;
+        color:#d6dfed;
+        display:-webkit-box;
+        -webkit-line-clamp:4;
+        -webkit-box-orient:vertical;
+        overflow:hidden;
+    }
+
+    #testimonials-preview .client{
+        font-size:16px;
+        margin-top:auto;
+        margin-bottom:4px;
+    }
+
+    #testimonials-preview .review-note{
+        font-size:12px;
+        line-height:1.3;
+    }
+}
+
+@media(max-width:420px){
+    #process{
+        padding-top:48px;
+        padding-bottom:52px;
+    }
+
+    #process .section-head h2{
+        font-size:clamp(28px,8.2vw,36px);
+        max-width:330px;
+    }
+
+    #process .process{
+        gap:9px;
+    }
+
+    #process .step{
+        min-height:90px;
+        padding:14px 10px 13px;
+    }
+
+    #process .step span{
+        font-size:15px;
+        margin-bottom:5px;
+    }
+
+    #process .step h3{
+        font-size:15px;
+    }
+
+    #testimonials-preview{
+        padding-top:50px;
+        padding-bottom:54px;
+    }
+
+    #testimonials-preview .section-head h2{
+        font-size:clamp(28px,8.2vw,36px);
+        max-width:320px;
+    }
+
+    #testimonials-preview .section-head p{
+        font-size:13.5px;
+        line-height:1.42;
+        max-width:332px;
+    }
+
+    #testimonials-preview .testimonials-grid{
+        gap:9px;
+    }
+
+    #testimonials-preview .testimonial{
+        padding:13px 12px 13px;
+        min-height:138px;
+    }
+
+    #testimonials-preview .sample-badge{
+        font-size:10.5px;
+        padding:6px 10px;
+        margin-bottom:10px;
+    }
+
+    #testimonials-preview .testimonial p{
+        font-size:12px;
+        line-height:1.38;
+        margin-bottom:10px;
+        -webkit-line-clamp:4;
+    }
+
+    #testimonials-preview .client{
+        font-size:15px;
+    }
+
+    #testimonials-preview .review-note{
+        font-size:11px;
+    }
+}
+
 </style>
 </head>
 
@@ -2701,7 +2913,7 @@ body.modal-open{
     </div>
 </section>
 
-<section>
+<section id="testimonials-preview">
     <div class="section-head center reveal">
         <div class="kicker">Sample Client Feedback</div>
         <h2>Preview feedback style.</h2>
