@@ -1515,20 +1515,26 @@ select{
 
 .popular-badge{
     position:absolute;
-    top:22px;
-    right:22px;
-    padding:7px 12px;
+    top:18px;
+    right:18px;
+    padding:5px 9px;
     border-radius:999px;
     background:#fff;
     color:#020617;
-    font-size:12px;
+    font-size:10px;
     font-weight:900;
+    line-height:1;
+    box-shadow:0 10px 30px rgba(0,0,0,.22);
 }
 
 .pricing-card h3{
     font-size:28px;
     letter-spacing:-.04em;
     margin-bottom:10px;
+}
+
+.pricing-card.popular h3{
+    padding-right:96px;
 }
 
 .pricing-price{
@@ -1645,6 +1651,17 @@ body.modal-open{
     .pricing-card{
         padding:26px 22px;
         border-radius:26px;
+    }
+
+    .pricing-card.popular h3{
+        padding-right:0;
+        margin-top:24px;
+    }
+
+    .popular-badge{
+        top:20px;
+        left:22px;
+        right:auto;
     }
 
     .pricing-price{
