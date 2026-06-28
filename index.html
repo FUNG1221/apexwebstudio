@@ -1458,24 +1458,33 @@ select{
 }
 
 .pricing-header{
-    max-width:720px;
-    margin:0 auto 34px;
+    max-width:760px;
+    margin:0 auto 38px;
     text-align:center;
-    padding:20px 38px 0;
+    padding:22px 38px 0;
 }
 
 .pricing-header .kicker{
-    margin-bottom:14px;
+    margin-bottom:16px;
 }
 
 .pricing-header h2{
-    font-size:clamp(42px,5.2vw,76px);
-    line-height:.94;
-    letter-spacing:-.065em;
+    font-size:clamp(46px,5vw,72px);
+    line-height:.96;
+    letter-spacing:-.06em;
     margin-bottom:18px;
 }
 
+.pricing-header h2 span{
+    display:block;
+    background:linear-gradient(135deg,#fff,#93c5fd,#a78bfa);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
 .pricing-header p{
+    max-width:680px;
+    margin:0 auto;
     color:var(--muted);
     font-size:18px;
     line-height:1.65;
@@ -1637,7 +1646,8 @@ body.modal-open{
     }
 
     .pricing-header h2{
-        font-size:clamp(38px,10.5vw,54px);
+        font-size:clamp(40px,10.5vw,56px);
+        line-height:.98;
     }
 
     .pricing-header p{
@@ -1920,6 +1930,10 @@ body.modal-open{
                 <option>Starter Website - From $399</option>
                 <option>Business Website - From $899</option>
                 <option>Premium Website - From $1,800</option>
+                <option>$1,000 - $3,000</option>
+                <option>$3,000 - $5,000</option>
+                <option>$5,000 - $10,000</option>
+                <option>$10,000+</option>
             </select>
             <textarea name="message" placeholder="Message"></textarea>
             <div class="form-message" id="formMessage">Thank you! Your project request has been sent successfully.</div>
@@ -1966,8 +1980,8 @@ body.modal-open{
 
         <div class="pricing-header">
             <div class="kicker">Pricing Packages</div>
-            <h2 id="pricingTitle">Choose the website package that fits your business.</h2>
-            <p>Clear starting prices for premium business websites. Final pricing depends on project size, content, features, and timeline.</p>
+            <h2 id="pricingTitle">Simple packages.<span>Premium results.</span></h2>
+            <p>Transparent starting prices for modern business websites. Choose a package, then we’ll tailor the final scope around your goals, content, and timeline.</p>
         </div>
 
         <div class="pricing-grid">
@@ -2025,7 +2039,7 @@ body.modal-open{
 
         </div>
 
-        <p class="pricing-note">Need something custom? Send your project details and Apex Web Studio will recommend the best option.</p>
+        <p class="pricing-note">Need something custom? Send your project details and Apex Web Studio will recommend the best option. Monthly website care is available from $49/month after launch.</p>
     </div>
 </div>
 
