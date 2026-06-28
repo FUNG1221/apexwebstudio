@@ -2066,6 +2066,55 @@ body.modal-open{
     }
 }
 
+
+/* ========================= */
+/* Mobile Full Background Fix */
+/* ========================= */
+@media(max-width:768px){
+    body{
+        min-height:100vh;
+        background:
+            radial-gradient(circle at 18% 18%,rgba(59,130,246,.22),transparent 34%),
+            radial-gradient(circle at 82% 16%,rgba(139,92,246,.18),transparent 32%),
+            radial-gradient(circle at 50% 92%,rgba(56,189,248,.12),transparent 34%),
+            linear-gradient(rgba(255,255,255,.035) 1px,transparent 1px),
+            linear-gradient(90deg,rgba(255,255,255,.035) 1px,transparent 1px),
+            #030712;
+        background-size:auto,auto,auto,80px 80px,80px 80px,auto;
+        background-position:center top,center top,center bottom,0 0,0 0,center;
+        background-attachment:fixed,fixed,fixed,fixed,fixed,fixed;
+    }
+
+    body::before{
+        z-index:0;
+        pointer-events:none;
+    }
+
+    body::after{
+        z-index:0;
+        pointer-events:none;
+        mask-image:none;
+        -webkit-mask-image:none;
+    }
+
+    body > :not(.loader){
+        position:relative;
+        z-index:1;
+    }
+
+    .navbar{
+        z-index:999;
+    }
+
+    .pricing-modal{
+        z-index:2000;
+    }
+
+    .pricing-backdrop{
+        z-index:1999;
+    }
+}
+
 </style>
 </head>
 
