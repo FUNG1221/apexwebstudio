@@ -1577,6 +1577,10 @@ select{
     font-weight:900;
 }
 
+.pricing-details-toggle{
+    display:none;
+}
+
 .pricing-btn{
     margin-top:auto;
     width:100%;
@@ -1748,8 +1752,47 @@ body.modal-open{
         margin-bottom:10px;
     }
 
+    .pricing-details-toggle{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        width:100%;
+        padding:9px 12px;
+        margin:8px 0 10px;
+        border-radius:999px;
+        border:1px solid rgba(96,165,250,.35);
+        background:rgba(96,165,250,.12);
+        color:#bfdbfe;
+        font-family:inherit;
+        font-size:12px;
+        font-weight:900;
+        cursor:pointer;
+    }
+
     .pricing-list{
         display:none;
+        gap:7px;
+        margin:6px 0 12px;
+        padding:12px;
+        border-radius:16px;
+        background:rgba(2,6,23,.36);
+        border:1px solid rgba(255,255,255,.08);
+        font-size:11.5px;
+        line-height:1.35;
+    }
+
+    .pricing-card.details-open .pricing-list{
+        display:grid;
+    }
+
+    .pricing-card.details-open .pricing-details-toggle{
+        background:#fff;
+        color:#020617;
+        border-color:#fff;
+    }
+
+    .pricing-list div{
+        gap:7px;
     }
 
     .pricing-btn{
@@ -2115,6 +2158,7 @@ body.modal-open{
                 <h3>Starter Website</h3>
                 <div class="pricing-price">From $399</div>
                 <p class="pricing-desc">Perfect for small businesses that need a clean, modern online presence.</p>
+                <button class="pricing-details-toggle" type="button">View what’s included</button>
                 <div class="pricing-list">
                     <div><span>✓</span> 1-page premium website</div>
                     <div><span>✓</span> Mobile responsive design</div>
@@ -2132,6 +2176,7 @@ body.modal-open{
                 <h3>Business Website</h3>
                 <div class="pricing-price">From $899</div>
                 <p class="pricing-desc">Best for service businesses that want a complete premium website built to convert.</p>
+                <button class="pricing-details-toggle" type="button">View what’s included</button>
                 <div class="pricing-list">
                     <div><span>✓</span> 5–7 custom sections</div>
                     <div><span>✓</span> Premium business layout</div>
@@ -2149,6 +2194,7 @@ body.modal-open{
                 <h3>Premium Website</h3>
                 <div class="pricing-price">From $1,800</div>
                 <p class="pricing-desc">For brands that want a high-end digital experience with stronger design and details.</p>
+                <button class="pricing-details-toggle" type="button">View what’s included</button>
                 <div class="pricing-list">
                     <div><span>✓</span> 8–10 custom sections</div>
                     <div><span>✓</span> Premium UI/UX design</div>
@@ -2284,6 +2330,8 @@ function closePricingModal(){
     pricingModal.classList.remove('show');
     pricingModal.setAttribute('aria-hidden','true');
     document.body.classList.remove('modal-open');
+    document.querySelectorAll('.pricing-card').forEach(card=>card.classList.remove('details-open'));
+    document.querySelectorAll('.pricing-details-toggle').forEach(button=>button.textContent = 'View what’s included');
 }
 
 document.querySelectorAll('[data-pricing-open]').forEach(button=>{
@@ -2301,6 +2349,24 @@ document.addEventListener('keydown',e=>{
     if(e.key === 'Escape' && pricingModal.classList.contains('show')){
         closePricingModal();
     }
+});
+
+document.querySelectorAll('.pricing-details-toggle').forEach(button=>{
+    button.addEventListener('click',()=>{
+        const card = button.closest('.pricing-card');
+        const isOpen = card.classList.contains('details-open');
+
+        document.querySelectorAll('.pricing-card').forEach(other=>{
+            other.classList.remove('details-open');
+            const toggle = other.querySelector('.pricing-details-toggle');
+            if(toggle) toggle.textContent = 'View what’s included';
+        });
+
+        if(!isOpen){
+            card.classList.add('details-open');
+            button.textContent = 'Hide details';
+        }
+    });
 });
 
 document.querySelectorAll('[data-package]').forEach(button=>{
