@@ -1664,6 +1664,135 @@ body.modal-open{
     }
 }
 
+
+
+/* ========================= */
+/* Mobile Pricing Compact View */
+/* ========================= */
+@media(max-width:768px){
+    .pricing-modal{
+        padding:8px;
+        align-items:center;
+        overflow:hidden;
+    }
+
+    .pricing-panel{
+        width:100%;
+        max-height:calc(100vh - 16px);
+        overflow:auto;
+        margin:0;
+        padding:16px 14px 14px;
+        border-radius:24px;
+    }
+
+    .pricing-close{
+        top:12px;
+        right:12px;
+        width:34px;
+        height:34px;
+        font-size:22px;
+        z-index:2;
+    }
+
+    .pricing-header{
+        max-width:100%;
+        padding:10px 38px 0;
+        margin-bottom:12px;
+    }
+
+    .pricing-header .kicker{
+        font-size:10px;
+        letter-spacing:.22em;
+        margin-bottom:8px;
+    }
+
+    .pricing-header h2{
+        font-size:clamp(28px,8.4vw,36px);
+        line-height:.94;
+        letter-spacing:-.055em;
+        margin-bottom:8px;
+    }
+
+    .pricing-header p{
+        max-width:330px;
+        font-size:12.5px;
+        line-height:1.42;
+    }
+
+    .pricing-grid{
+        display:grid;
+        grid-template-columns:1fr;
+        gap:8px;
+    }
+
+    .pricing-card{
+        min-height:auto;
+        padding:13px 14px;
+        border-radius:20px;
+    }
+
+    .pricing-card h3{
+        font-size:19px;
+        margin-bottom:4px;
+        padding-right:82px;
+    }
+
+    .pricing-price{
+        font-size:28px;
+        margin-bottom:4px;
+    }
+
+    .pricing-desc{
+        font-size:12.5px;
+        line-height:1.35;
+        margin-bottom:10px;
+    }
+
+    .pricing-list{
+        display:none;
+    }
+
+    .pricing-btn{
+        padding:10px 12px;
+        font-size:12px;
+    }
+
+    .popular-badge{
+        top:13px;
+        right:13px;
+        font-size:7px;
+        padding:3px 6px;
+    }
+
+    .pricing-note{
+        font-size:10.5px;
+        line-height:1.35;
+        margin-top:10px;
+    }
+}
+
+@media(max-width:390px){
+    .pricing-header h2{
+        font-size:30px;
+    }
+
+    .pricing-header p{
+        font-size:12px;
+    }
+
+    .pricing-card{
+        padding:12px 13px;
+    }
+
+    .pricing-card h3{
+        font-size:18px;
+    }
+
+    .pricing-price{
+        font-size:26px;
+    }
+}
+
 </style>
 </head>
 
