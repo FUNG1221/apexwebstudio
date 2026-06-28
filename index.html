@@ -2368,6 +2368,52 @@ body.modal-open{
     }
 }
 
+
+/* ========================= */
+/* Mobile Services Heading Like Reference */
+/* ========================= */
+@media(max-width:768px){
+    #services .section-head{
+        max-width:100%;
+        margin-left:0;
+        margin-right:0;
+        text-align:left;
+    }
+
+    #services .kicker{
+        max-width:none;
+        margin-left:0;
+        margin-right:0;
+        padding-left:0;
+        text-align:left;
+        font-size:11px;
+        letter-spacing:.18em;
+        margin-bottom:14px;
+    }
+
+    #services .section-head h2{
+        max-width:none;
+        margin-left:0;
+        margin-right:0;
+        text-align:left;
+        font-size:clamp(44px,12.5vw,62px);
+        line-height:.98;
+        letter-spacing:-.065em;
+    }
+}
+
+@media(max-width:420px){
+    #services .kicker{
+        max-width:none;
+        padding-left:0;
+    }
+
+    #services .section-head h2{
+        max-width:none;
+        font-size:clamp(42px,12vw,58px);
+    }
+}
+
 </style>
 </head>
 
@@ -2634,7 +2680,6 @@ body.modal-open{
                 <option>Starter Website - From $399</option>
                 <option>Business Website - From $899</option>
                 <option>Premium Website - From $1,800</option>
-            </select>
             <textarea name="message" placeholder="Message"></textarea>
             <div class="form-message" id="formMessage">Thank you! Your project request has been sent successfully.</div>
             <button type="submit">→ Send Project Request</button>
