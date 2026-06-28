@@ -2015,36 +2015,39 @@ body.modal-open{
 
 
 /* ========================= */
-/* Mobile Navbar Safe Fit Fix */
+/* Mobile Navbar Fit Fix */
 /* ========================= */
 @media(max-width:768px){
     .navbar{
-        left:14px;
-        right:14px;
+        left:16px;
+        right:16px;
         width:auto;
         max-width:none;
         transform:none;
-        padding:0 18px;
-        min-height:64px;
+        top:18px;
+        padding:13px 16px;
         border-radius:28px;
-        overflow:visible;
+        gap:12px;
     }
 
     .logo{
         font-size:17px;
         line-height:1;
         white-space:nowrap;
-        flex-shrink:0;
-        max-width:72%;
+        min-width:0;
     }
 
     .menu{
-        flex-shrink:0;
+        flex:0 0 auto;
         margin-left:auto;
     }
 
+    .menu span{
+        width:26px;
+    }
+
     .nav-links{
-        top:78px;
+        top:68px;
         left:0;
         right:0;
         width:100%;
@@ -2055,18 +2058,11 @@ body.modal-open{
     .navbar{
         left:12px;
         right:12px;
-        padding:0 16px;
-        min-height:62px;
-        border-radius:26px;
+        padding:12px 14px;
     }
 
     .logo{
         font-size:16px;
-        max-width:70%;
-    }
-
-    .menu span{
-        width:23px;
     }
 }
 
