@@ -1393,6 +1393,265 @@ select{
     }
 }
 
+/* ========================= */
+/* Premium Pricing Modal */
+/* ========================= */
+.pricing-link{
+    cursor:pointer;
+}
+
+.pricing-modal{
+    position:fixed;
+    inset:0;
+    z-index:10000;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    padding:26px;
+}
+
+.pricing-modal.show{
+    display:flex;
+}
+
+.pricing-backdrop{
+    position:absolute;
+    inset:0;
+    background:rgba(2,6,23,.78);
+    backdrop-filter:blur(18px);
+}
+
+.pricing-panel{
+    position:relative;
+    width:min(1180px,100%);
+    max-height:90vh;
+    overflow:auto;
+    border-radius:38px;
+    border:1px solid rgba(255,255,255,.16);
+    background:
+        radial-gradient(circle at 12% 0%,rgba(59,130,246,.24),transparent 35%),
+        radial-gradient(circle at 88% 0%,rgba(139,92,246,.18),transparent 35%),
+        linear-gradient(180deg,rgba(15,23,42,.96),rgba(2,6,23,.98));
+    box-shadow:0 50px 180px rgba(0,0,0,.7);
+    padding:34px;
+}
+
+.pricing-close{
+    position:absolute;
+    top:22px;
+    right:22px;
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.08);
+    color:#fff;
+    font-size:26px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.pricing-close:hover{
+    background:#fff;
+    color:#020617;
+    transform:rotate(90deg);
+}
+
+.pricing-header{
+    max-width:720px;
+    margin:0 auto 34px;
+    text-align:center;
+    padding:20px 38px 0;
+}
+
+.pricing-header .kicker{
+    margin-bottom:14px;
+}
+
+.pricing-header h2{
+    font-size:clamp(42px,5.2vw,76px);
+    line-height:.94;
+    letter-spacing:-.065em;
+    margin-bottom:18px;
+}
+
+.pricing-header p{
+    color:var(--muted);
+    font-size:18px;
+    line-height:1.65;
+}
+
+.pricing-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
+}
+
+.pricing-card{
+    position:relative;
+    padding:30px;
+    border-radius:30px;
+    border:1px solid rgba(255,255,255,.14);
+    background:rgba(255,255,255,.065);
+    backdrop-filter:blur(20px);
+    display:flex;
+    flex-direction:column;
+    min-height:520px;
+    transition:.35s;
+}
+
+.pricing-card:hover{
+    transform:translateY(-8px);
+    border-color:rgba(96,165,250,.5);
+    box-shadow:0 34px 100px rgba(59,130,246,.16);
+}
+
+.pricing-card.popular{
+    background:
+        radial-gradient(circle at 50% 0%,rgba(96,165,250,.22),transparent 35%),
+        rgba(255,255,255,.09);
+    border-color:rgba(96,165,250,.55);
+}
+
+.popular-badge{
+    position:absolute;
+    top:22px;
+    right:22px;
+    padding:7px 12px;
+    border-radius:999px;
+    background:#fff;
+    color:#020617;
+    font-size:12px;
+    font-weight:900;
+}
+
+.pricing-card h3{
+    font-size:28px;
+    letter-spacing:-.04em;
+    margin-bottom:10px;
+}
+
+.pricing-price{
+    font-size:48px;
+    font-weight:900;
+    letter-spacing:-.06em;
+    margin-bottom:12px;
+    background:linear-gradient(135deg,#fff,#93c5fd,#a78bfa);
+    -webkit-background-clip:text;
+    color:transparent;
+}
+
+.pricing-desc{
+    color:#cbd5e1;
+    line-height:1.6;
+    margin-bottom:24px;
+}
+
+.pricing-list{
+    display:grid;
+    gap:12px;
+    margin-bottom:28px;
+    color:#dbeafe;
+    font-size:15px;
+}
+
+.pricing-list div{
+    display:flex;
+    gap:10px;
+    align-items:flex-start;
+}
+
+.pricing-list span{
+    color:#60a5fa;
+    font-weight:900;
+}
+
+.pricing-btn{
+    margin-top:auto;
+    width:100%;
+    padding:16px 18px;
+    border-radius:999px;
+    border:1px solid rgba(255,255,255,.16);
+    background:#fff;
+    color:#020617;
+    font-family:inherit;
+    font-weight:900;
+    font-size:15px;
+    cursor:pointer;
+    transition:.35s;
+}
+
+.pricing-btn:hover{
+    transform:translateY(-4px);
+    box-shadow:0 18px 60px rgba(96,165,250,.32);
+}
+
+.pricing-note{
+    text-align:center;
+    color:#94a3b8;
+    font-size:14px;
+    line-height:1.6;
+    margin-top:24px;
+}
+
+body.modal-open{
+    overflow:hidden;
+}
+
+@media(max-width:900px){
+    .pricing-grid{
+        grid-template-columns:1fr;
+    }
+
+    .pricing-card{
+        min-height:auto;
+    }
+}
+
+@media(max-width:768px){
+    .pricing-modal{
+        padding:14px;
+        align-items:flex-start;
+        overflow:auto;
+    }
+
+    .pricing-panel{
+        margin:18px 0;
+        padding:24px 18px;
+        border-radius:30px;
+        max-height:none;
+    }
+
+    .pricing-close{
+        top:16px;
+        right:16px;
+        width:40px;
+        height:40px;
+    }
+
+    .pricing-header{
+        padding:34px 8px 0;
+        margin-bottom:24px;
+    }
+
+    .pricing-header h2{
+        font-size:clamp(38px,10.5vw,54px);
+    }
+
+    .pricing-header p{
+        font-size:17px;
+    }
+
+    .pricing-card{
+        padding:26px 22px;
+        border-radius:26px;
+    }
+
+    .pricing-price{
+        font-size:42px;
+    }
+}
+
 </style>
 </head>
 
@@ -1412,6 +1671,7 @@ select{
         <a href="#home">Home</a>
         <a href="#work">Work</a>
         <a href="#services">Services</a>
+        <a href="#" class="pricing-link" data-pricing-open>Pricing</a>
         <a href="#process">Process</a>
         <a href="#about">About</a>
         <a href="#faq">FAQ</a>
@@ -1430,6 +1690,7 @@ select{
         <p>We design premium websites for businesses worldwide that want to look established, build trust instantly, and convert more visitors into paying customers.</p>
         <div class="buttons">
             <a href="#work" class="btn btn-primary">View Our Work</a>
+            <a href="#" class="btn btn-secondary pricing-link" data-pricing-open>View Packages</a>
             <a href="#contact" class="btn btn-secondary">Start Your Project</a>
         </div>
 
@@ -1646,6 +1907,7 @@ select{
         <form id="contactForm" action="https://formsubmit.co/ajax/contact.apexwebstudio@gmail.com" method="POST">
             <input type="hidden" name="_subject" value="New Project Request from Apex Web Studio">
             <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="selected_package" id="selectedPackage" value="">
             <input type="text" name="name" placeholder="Name" required>
             <input type="text" name="business" placeholder="Business">
             <input type="email" name="email" placeholder="Email" required>
@@ -1653,6 +1915,9 @@ select{
             <input type="url" name="website" placeholder="Current Website">
             <select name="budget">
                 <option value="">Budget</option>
+                <option>Starter Website - From $399</option>
+                <option>Business Website - From $899</option>
+                <option>Premium Website - From $1,800</option>
                 <option>$1,000 - $3,000</option>
                 <option>$3,000 - $5,000</option>
                 <option>$5,000 - $10,000</option>
@@ -1677,6 +1942,7 @@ select{
             <a href="#home">Home</a>
             <a href="#work">Work</a>
             <a href="#services">Services</a>
+            <a href="#" data-pricing-open>Pricing</a>
             <a href="#about">About</a>
             <a href="#faq">FAQ</a>
         </div>
@@ -1694,6 +1960,77 @@ select{
         <span>Made with passion by Apex Web Studio.</span>
     </div>
 </footer>
+
+<div class="pricing-modal" id="pricingModal" aria-hidden="true">
+    <div class="pricing-backdrop" data-pricing-close></div>
+    <div class="pricing-panel" role="dialog" aria-modal="true" aria-labelledby="pricingTitle">
+        <button class="pricing-close" data-pricing-close aria-label="Close pricing">×</button>
+
+        <div class="pricing-header">
+            <div class="kicker">Pricing Packages</div>
+            <h2 id="pricingTitle">Choose the website package that fits your business.</h2>
+            <p>Clear starting prices for premium business websites. Final pricing depends on project size, content, features, and timeline.</p>
+        </div>
+
+        <div class="pricing-grid">
+
+            <div class="pricing-card">
+                <h3>Starter Website</h3>
+                <div class="pricing-price">From $399</div>
+                <p class="pricing-desc">Perfect for small businesses that need a clean, modern online presence.</p>
+                <div class="pricing-list">
+                    <div><span>✓</span> 1-page premium website</div>
+                    <div><span>✓</span> Mobile responsive design</div>
+                    <div><span>✓</span> Contact form</div>
+                    <div><span>✓</span> Basic SEO setup</div>
+                    <div><span>✓</span> Fast loading optimization</div>
+                    <div><span>✓</span> 1 round of revision</div>
+                    <div><span>✓</span> Delivery: 3–5 days</div>
+                </div>
+                <button class="pricing-btn" data-package="Starter Website - From $399">Start Starter Project</button>
+            </div>
+
+            <div class="pricing-card popular">
+                <div class="popular-badge">Most Popular</div>
+                <h3>Business Website</h3>
+                <div class="pricing-price">From $899</div>
+                <p class="pricing-desc">Best for service businesses that want a complete premium website built to convert.</p>
+                <div class="pricing-list">
+                    <div><span>✓</span> 5–7 custom sections</div>
+                    <div><span>✓</span> Premium business layout</div>
+                    <div><span>✓</span> Contact form connected to email</div>
+                    <div><span>✓</span> Services / About / FAQ</div>
+                    <div><span>✓</span> Testimonials or gallery section</div>
+                    <div><span>✓</span> SEO-ready structure</div>
+                    <div><span>✓</span> 2 rounds of revisions</div>
+                    <div><span>✓</span> Delivery: 5–7 days</div>
+                </div>
+                <button class="pricing-btn" data-package="Business Website - From $899">Start Business Project</button>
+            </div>
+
+            <div class="pricing-card">
+                <h3>Premium Website</h3>
+                <div class="pricing-price">From $1,800</div>
+                <p class="pricing-desc">For brands that want a high-end digital experience with stronger design and details.</p>
+                <div class="pricing-list">
+                    <div><span>✓</span> 8–10 custom sections</div>
+                    <div><span>✓</span> Premium UI/UX design</div>
+                    <div><span>✓</span> Advanced animations</div>
+                    <div><span>✓</span> Conversion-focused layout</div>
+                    <div><span>✓</span> Custom visual direction</div>
+                    <div><span>✓</span> SEO and speed optimization</div>
+                    <div><span>✓</span> 3 rounds of revisions</div>
+                    <div><span>✓</span> Delivery: 10–14 days</div>
+                </div>
+                <button class="pricing-btn" data-package="Premium Website - From $1,800">Start Premium Project</button>
+            </div>
+
+        </div>
+
+        <p class="pricing-note">Need something custom? Send your project details and Apex Web Studio will recommend the best option.</p>
+    </div>
+</div>
+
 
 <button id="backToTop" aria-label="Back to top">
     <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
@@ -1795,6 +2132,60 @@ window.addEventListener('scroll',()=>{
 backToTop.addEventListener('click',()=>{
     window.scrollTo({top:0,behavior:'smooth'});
 });
+
+
+const pricingModal = document.getElementById('pricingModal');
+const selectedPackage = document.getElementById('selectedPackage');
+
+function openPricingModal(){
+    pricingModal.classList.add('show');
+    pricingModal.setAttribute('aria-hidden','false');
+    document.body.classList.add('modal-open');
+}
+
+function closePricingModal(){
+    pricingModal.classList.remove('show');
+    pricingModal.setAttribute('aria-hidden','true');
+    document.body.classList.remove('modal-open');
+}
+
+document.querySelectorAll('[data-pricing-open]').forEach(button=>{
+    button.addEventListener('click',e=>{
+        e.preventDefault();
+        openPricingModal();
+    });
+});
+
+document.querySelectorAll('[data-pricing-close]').forEach(button=>{
+    button.addEventListener('click',closePricingModal);
+});
+
+document.addEventListener('keydown',e=>{
+    if(e.key === 'Escape' && pricingModal.classList.contains('show')){
+        closePricingModal();
+    }
+});
+
+document.querySelectorAll('[data-package]').forEach(button=>{
+    button.addEventListener('click',()=>{
+        const packageName = button.dataset.package;
+        if(selectedPackage){
+            selectedPackage.value = packageName;
+        }
+
+        const budgetSelect = document.querySelector('select[name="budget"]');
+        if(budgetSelect){
+            budgetSelect.value = packageName;
+        }
+
+        closePricingModal();
+
+        setTimeout(()=>{
+            document.getElementById('contact').scrollIntoView({behavior:'smooth'});
+        },120);
+    });
+});
+
 
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
