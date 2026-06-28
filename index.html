@@ -866,17 +866,6 @@ footer{
     transform:translateY(0);
 }
 
-.cursor{
-    position:fixed;
-    width:22px;
-    height:22px;
-    border:1px solid rgba(255,255,255,.5);
-    border-radius:50%;
-    pointer-events:none;
-    z-index:99999;
-    transform:translate(-50%,-50%);
-}
-
 #backToTop{
     position:fixed;
     right:28px;
@@ -1002,10 +991,6 @@ footer{
 
     form{
         grid-template-columns:1fr;
-    }
-
-    .cursor{
-        display:none;
     }
 
     .footer-grid{
@@ -1419,7 +1404,6 @@ select{
     </div>
 </div>
 
-<div class="cursor"></div>
 
 <nav class="navbar">
     <a href="#home" class="logo">Apex <span>Web Studio</span></a>
@@ -1797,12 +1781,6 @@ document.querySelectorAll('.faq-item').forEach(item=>{
             icon.textContent = '−';
         }
     });
-});
-
-const cursor = document.querySelector('.cursor');
-document.addEventListener('mousemove',e=>{
-    cursor.style.left = e.clientX + 'px';
-    cursor.style.top = e.clientY + 'px';
 });
 
 const backToTop = document.getElementById('backToTop');
