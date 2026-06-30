@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+=<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
@@ -796,6 +796,48 @@ form button{
 form button:hover{
     transform:translateY(-4px) scale(1.02);
     box-shadow:0 18px 60px rgba(96,165,250,.35);
+}
+
+
+
+/* ========================= */
+/* Privacy Agreement Checkbox */
+/* ========================= */
+.privacy-agreement{
+    grid-column:1/-1;
+    display:flex;
+    align-items:flex-start;
+    gap:10px;
+    color:#cbd5e1;
+    font-size:14px;
+    line-height:1.55;
+    margin-top:2px;
+}
+
+.privacy-agreement input{
+    width:16px;
+    height:16px;
+    min-width:16px;
+    margin-top:3px;
+    accent-color:#60a5fa;
+    cursor:pointer;
+}
+
+.privacy-agreement a{
+    color:#ffffff;
+    text-decoration:underline;
+    text-underline-offset:3px;
+}
+
+.privacy-agreement a:hover{
+    color:#93c5fd;
+}
+
+@media(max-width:768px){
+    .privacy-agreement{
+        font-size:13.5px;
+        gap:9px;
+    }
 }
 
 /* ========================= */
@@ -2992,6 +3034,10 @@ body.modal-open{
                 <option>Premium Website - From $1,800</option>
             </select>
             <textarea name="message" placeholder="Message"></textarea>
+            <label class="privacy-agreement">
+                <input type="checkbox" name="privacy_agreement" value="Agreed" required>
+                <span>I agree to the <a href="#" target="_blank" rel="noopener">Privacy Policy</a> as outlined on the website.</span>
+            </label>
             <div class="form-message" id="formMessage">Thank you! Your project request has been sent successfully.</div>
             <button type="submit">→ Send Project Request</button>
         </form>
