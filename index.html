@@ -3155,6 +3155,53 @@ body.modal-open{
     }
 }
 
+
+
+/* ========================= */
+/* Mobile Hero Buttons One Row */
+/* ========================= */
+@media(max-width:768px){
+    .buttons{
+        flex-direction:row;
+        flex-wrap:nowrap;
+        align-items:stretch;
+        justify-content:center;
+        gap:8px;
+        max-width:360px;
+        margin:0 auto;
+    }
+
+    .btn{
+        flex:1 1 0;
+        width:auto;
+        max-width:none;
+        min-width:0;
+        min-height:56px;
+        padding:12px 8px;
+        font-size:13px;
+        line-height:1.15;
+        white-space:normal;
+        text-align:center;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+    }
+}
+
+@media(max-width:420px){
+    .buttons{
+        max-width:340px;
+        gap:7px;
+    }
+
+    .btn{
+        min-height:54px;
+        padding:11px 7px;
+        font-size:12px;
+        border-radius:22px;
+    }
+}
+
 </style>
 </head>
 
