@@ -3236,6 +3236,14 @@ footer a:hover{
     color:#ffffff;
 }
 
+
+/* Loader safety fix */
+body.loaded .loader{
+    opacity:0!important;
+    visibility:hidden!important;
+    pointer-events:none!important;
+}
+
 </style>
 <!-- Microsoft Clarity Tracking Code -->
 <script type="text/javascript">
@@ -3760,59 +3768,6 @@ backToTop.addEventListener('click',()=>{
     window.scrollTo({top:0,behavior:'smooth'});
 });
 
-
-const pricingModal = document.getElementById('pricingModal');
-const selectedPackage = document.getElementById('selectedPackage');
-
-function openPricingModal(){
-    pricingModal.classList.add('show');
-    pricingModal.setAttribute('aria-hidden','false');
-    document.body.classList.add('modal-open');
-}
-
-
-});
-
-
-document.addEventListener('keydown',e=>{
-    if(e.key === 'Escape' && pricingModal.classList.contains('show')){
-        closePricingModal();
-    }
-});
-
-
-        if(!isOpen){
-            card.classList.add('details-open');
-            button.textContent = 'Hide details';
-        }
-    });
-});
-
-        },120);
-    });
-});
-
-
-
-// Mobile work stack selector
-const workCards = document.querySelectorAll('#work .bento-item');
-if(workCards.length){
-    workCards[0].classList.add('work-active');
-
-    workCards.forEach(card=>{
-        card.addEventListener('click',e=>{
-            const isMobile = window.matchMedia('(max-width: 768px)').matches;
-            if(!isMobile) return;
-
-            if(!card.classList.contains('work-active')){
-                e.preventDefault();
-                workCards.forEach(item=>item.classList.remove('work-active'));
-                card.classList.add('work-active');
-            }
-        });
-    });
-}
-
 const contactForm = document.getElementById('contactForm');
 const formMessage = document.getElementById('formMessage');
 
@@ -3847,6 +3802,32 @@ contactForm.addEventListener('submit',async e=>{
     button.textContent = originalText;
     button.disabled = false;
 });
+</script>
+
+
+<script>
+window.addEventListener('load', function(){
+    setTimeout(function(){
+        var loader = document.querySelector('.loader');
+        if(loader){
+            loader.style.opacity = '0';
+            loader.style.visibility = 'hidden';
+            loader.style.pointerEvents = 'none';
+            setTimeout(function(){ loader.style.display = 'none'; }, 450);
+        }
+        document.body.classList.add('loaded');
+    }, 500);
+});
+setTimeout(function(){
+    var loader = document.querySelector('.loader');
+    if(loader){
+        loader.style.opacity = '0';
+        loader.style.visibility = 'hidden';
+        loader.style.pointerEvents = 'none';
+        loader.style.display = 'none';
+    }
+    document.body.classList.add('loaded');
+}, 2500);
 </script>
 
 </body>
