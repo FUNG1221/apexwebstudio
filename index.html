@@ -3264,7 +3264,6 @@ footer a:hover{
         <a href="#home">Home</a>
         <a href="#work">Work</a>
         <a href="#services">Services</a>
-        <a href="#" class="pricing-link" data-pricing-open>Pricing</a>
         <a href="#process">Process</a>
         <a href="#about">About</a>
         <a href="#faq">FAQ</a>
@@ -3283,7 +3282,6 @@ footer a:hover{
         <p>We design premium websites for businesses worldwide that want to look established, build trust instantly, and convert more visitors into paying customers.</p>
         <div class="buttons">
             <a href="#work" class="btn btn-primary">View Our Work</a>
-            <a href="#" class="btn btn-secondary pricing-link" data-pricing-open>View Packages</a>
             <a href="#contact" class="btn btn-secondary">Start Your Project</a>
         </div>
 
@@ -3514,7 +3512,7 @@ footer a:hover{
     <div class="contact-wrap reveal">
         <div class="contact-info">
             <h3>Let’s build something expensive-looking.</h3>
-            <p>Tell us about your business, your goal, your budget, and the kind of website you want. Apex Web Studio will help you create a premium online presence that customers trust.</p>
+            <p>Tell us about your business, your goals, and the kind of website you want. We’ll review the details and recommend the right direction for your market. Apex Web Studio will help you create a premium online presence that customers trust.</p>
         </div>
 
         <form id="contactForm" action="https://formsubmit.co/ajax/info@apexwebstudioagency.com" method="POST">
@@ -3527,10 +3525,11 @@ footer a:hover{
             <input type="tel" name="phone" placeholder="Phone">
             <input type="url" name="website" placeholder="Current Website">
             <select name="budget">
-                <option value="">Budget</option>
-                <option>Starter Website - From $399</option>
-                <option>Business Website - From $899</option>
-                <option>Premium Website - From $1,800</option>
+                <option value="">Project Type / Not sure yet</option>
+                <option>Need guidance</option>
+                <option>New business website</option>
+                <option>Website redesign</option>
+                <option>Premium custom website</option>
             </select>
             <textarea name="message" placeholder="Message"></textarea>
             <label class="privacy-agreement">
@@ -3547,7 +3546,7 @@ footer a:hover{
     <div class="footer-grid">
         <div class="footer-brand">
             <strong>Apex Web Studio</strong>
-            <p>Premium Websites for Modern Businesses.</p>
+            <p>Premium websites for modern businesses worldwide.</p>
         </div>
 
         <div class="footer-col">
@@ -3555,7 +3554,6 @@ footer a:hover{
             <a href="#home">Home</a>
             <a href="#work">Work</a>
             <a href="#services">Services</a>
-            <a href="#" data-pricing-open>Pricing</a>
             <a href="#about">About</a>
             <a href="#faq">FAQ</a>
         </div>
@@ -3772,24 +3770,9 @@ function openPricingModal(){
     document.body.classList.add('modal-open');
 }
 
-function closePricingModal(){
-    pricingModal.classList.remove('show');
-    pricingModal.setAttribute('aria-hidden','true');
-    document.body.classList.remove('modal-open');
-    document.querySelectorAll('.pricing-card').forEach(card=>card.classList.remove('details-open'));
-    document.querySelectorAll('.pricing-details-toggle').forEach(button=>button.textContent = 'View what’s included');
-}
 
-document.querySelectorAll('[data-pricing-open]').forEach(button=>{
-    button.addEventListener('click',e=>{
-        e.preventDefault();
-        openPricingModal();
-    });
 });
 
-document.querySelectorAll('[data-pricing-close]').forEach(button=>{
-    button.addEventListener('click',closePricingModal);
-});
 
 document.addEventListener('keydown',e=>{
     if(e.key === 'Escape' && pricingModal.classList.contains('show')){
@@ -3797,16 +3780,6 @@ document.addEventListener('keydown',e=>{
     }
 });
 
-document.querySelectorAll('.pricing-details-toggle').forEach(button=>{
-    button.addEventListener('click',()=>{
-        const card = button.closest('.pricing-card');
-        const isOpen = card.classList.contains('details-open');
-
-        document.querySelectorAll('.pricing-card').forEach(other=>{
-            other.classList.remove('details-open');
-            const toggle = other.querySelector('.pricing-details-toggle');
-            if(toggle) toggle.textContent = 'View what’s included';
-        });
 
         if(!isOpen){
             card.classList.add('details-open');
@@ -3815,22 +3788,6 @@ document.querySelectorAll('.pricing-details-toggle').forEach(button=>{
     });
 });
 
-document.querySelectorAll('[data-package]').forEach(button=>{
-    button.addEventListener('click',()=>{
-        const packageName = button.dataset.package;
-        if(selectedPackage){
-            selectedPackage.value = packageName;
-        }
-
-        const budgetSelect = document.querySelector('select[name="budget"]');
-        if(budgetSelect){
-            budgetSelect.value = packageName;
-        }
-
-        closePricingModal();
-
-        setTimeout(()=>{
-            document.getElementById('contact').scrollIntoView({behavior:'smooth'});
         },120);
     });
 });
